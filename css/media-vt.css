@@ -1,0 +1,206 @@
+body { min-width:320px; }
+
+.header .inner,
+.footer .inner {
+	min-width: 320px;
+}
+
+.home-page .footer, .contact-page .footer {
+	position: relative;
+}
+
+.footer .other {
+	display: block;
+}
+.footer .tweets {
+	height:85px;
+}
+
+@media (max-width:620px) {
+	.col {
+		width:100%;
+	}
+	.pad {
+		padding:0;
+	} 
+	body,	
+	.header .inner,
+	.menu,
+	.footer .inner,
+	.content {
+		min-width:320px;
+	}
+	h1, .h1 {
+		font-size:50px
+	}
+
+	.main-hide .social li {
+		display:none;
+	}
+	.main-hide .social .vt-logo {
+		display:block;
+	}
+
+	.header {
+		position: fixed;
+		width: 100%;
+		z-index: 9999;
+		border-bottom: 1px solid #000;
+		box-shadow: 0 5px 25px #000;
+	}
+	.menu { padding: 0; }
+
+	.menu-main-nav-container {
+		display:none;
+		top: 86px;
+		padding: 20px 0 0;
+		background: rgba(0,0,0,.9);
+                box-shadow: 0 5px 25px #000;
+	}
+	.menu-main-nav-container.show {
+		display:block;
+	}
+	#menu-main-nav li {
+		display:block;
+		margin:0;
+	}
+	.menu-main-nav-container .vt-logo {
+		display: none;
+	}
+	.header nav .social {
+		display: block;
+		text-align: center;
+	}
+	.header nav .social a {
+		overflow: hidden;
+		padding: 5px;
+	}
+	.header nav .social li {
+		margin: 0 10px;
+	}
+	.menu li a {
+		padding:5px;
+		font-size: 28px;
+	}
+	.header .tagline {
+		padding: 10px;
+		text-align: center;
+		font-size: 11px;
+		display: block;
+		border-top: 1px solid #fff;
+		margin: 10px 20px;
+	}
+	.content {
+		padding:110px 20px 0;
+                margin-bottom:20px;
+	}
+	.home-page iframe {
+		width:100%;
+	}
+	.home-page .main-links a, .home-page .banner-text {
+		font-size: 36px;
+	}
+	/*	.home-page .content {
+		padding-top: 20px;
+	}*/
+	.home-page .wrapper {
+		min-height: 0;
+	}
+	/*.production-list .content {
+		padding: 10px 5px 0;
+	}*/
+	.production-list ol {
+		padding-left: 0;
+	}
+	.production-list li {
+		width: 100%;
+	}
+	.production-list li img {
+		width: 100%;
+		height: auto;
+	}
+	.home-page .footer {
+		position:relative;
+	}
+	
+	.additional-info {
+		display:none;
+	}
+
+   .additional-info.mobile {
+          display:block;
+          padding-top:40px;
+	}      
+	
+	.poster-large {
+	    margin-bottom:20px;
+	}
+	
+	.footer .col {
+		margin-bottom: 20px;
+	}
+
+	.mob-menu {
+		display:block;	
+	}
+
+	.footer .tweets {
+		height:100px;
+	}
+	.woocommerce table.shop_table, .woocommerce-page table.shop_table {
+		padding:5px;
+	}
+
+	form input,
+	.woocommerce form .form-row input.input-text, 
+	.woocommerce form .form-row textarea, 
+	.woocommerce-page form .form-row input.input-text, 
+	.woocommerce-page form .form-row textarea,
+	.woocommerce form .col-1 .form-row input.input-text, 
+	.woocommerce form .col-1 .form-row textarea, 
+	.woocommerce-page form .col-1 .form-row input.input-text, 
+	.woocommerce-page form .col-1 .form-row textarea {  
+		width: 100%; 
+		padding: 10px;
+	}
+
+
+	.woocommerce table.cart td.actions .coupon #coupon_code,
+	.woocommerce table.cart td.actions .coupon input { 
+	   width:48%; 
+		margin:0;
+	}
+
+	.woocommerce #payment .payment_method_paypal .about_paypal, .woocommerce-page #payment .payment_method_paypal .about_paypal { 
+		float:none; 
+		display: block;
+	}
+
+	form input[type="submit"] {
+		margin: 5px 0;
+	}
+
+	.woocommerce .form-row-first {
+		width: 100%;
+	}
+
+	.woocommerce .col2-set .col-1,
+	.woocommerce .col2-set .col-2,
+	.woocommerce-page .col2-set .col-1,
+	.woocommerce-page .col2-set .col-2 {
+	  float:none;
+	  width:100%;
+	}
+
+	.footer .other li a {
+		padding:10px 0;
+	}
+	.footer .other li {
+		margin-bottom: 10px;
+	}
+
+	.performance-images .col {
+		width:50%;
+	}
+	
+}
