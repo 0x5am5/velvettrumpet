@@ -376,10 +376,6 @@ font-size: 83px;
 .home-page .content a:focus {
 	text-decoration: none;
 }
-.home-page .content {
-	padding-left:150px;
-	padding-right:150px;
-}
 
 .home-page .quotes {
 	margin-top: 40px;

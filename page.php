@@ -45,25 +45,28 @@
 		<?php if (get_the_title() === 'Productions') {
 			// check for rows (parent repeater)
 			if( get_field('productions') ): ?>
-			<?php $i=1; ?>
-					<div class="grid">
-						<?php while( has_sub_field('productions') ): ?>
-							<?php $i++; ?>
+				<div class="grid">
+					<?php //for ($b = count(get_field('productions')); $b > 1; $b--; ) { 
+						for ($b = count(get_field('productions'))-1; $b >= 0; $b--) { 
+							$row = get_field('productions')[$b];
+							$image = $row['image'];
+							?>
+
 							<div class="col w-33 production">
-							<?php if (get_sub_field('link')!='') { ?>
-								<a href="<?php the_sub_field('link'); ?>">
-								<?php if(get_sub_field('booking')) { ?>
-									<span class="icon booking"></span>
+								<?php if ($row['link']!='') { ?>
+									<a href="<?php echo $row['link']; ?>">
+									<?php if($row['booking']) { ?>
+										<span class="icon booking"></span>
+									<?php } ?>
+									<span class="shade"></span>
 								<?php } ?>
-								<span class="shade"></span>
-							<?php } ?>
-									<img src="<?php echo get_sub_field('image')['url']; ?>" alt="<?php the_sub_field('title'); ?>">
-								<?php if (get_sub_field('link')!='') { ?></a><?php } ?>
+								<img src="<?php echo $image['url']; ?>" alt="<?php echo $row['title']; ?>">
+							<?php if ($row['link']!='') { ?></a><?php } ?>
 							</div>
-						<?php if ($i%3 == 1) echo "</div><div class='grid'>"; ?>
-						<?php endwhile; ?>
-					</div>
-				<?php endif;
+							<?php if ($b%3 == 3) echo "</div><div class='grid'>"; ?>
+					<?php }?>
+				</div>
+			<?php endif;
 		} else {
 			 the_content();
 		} ?>
