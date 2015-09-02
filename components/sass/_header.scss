@@ -1,0 +1,185 @@
+.header 
+{
+	background: #fff;
+	
+	img {
+		display: none;
+	}
+
+	.main-hide {
+  		border-bottom: 1px solid #000;
+		text-align: center;
+		padding: 10px 0;
+		margin: 0 20px;
+		z-index: 1001;
+	}
+
+	.social li {
+		margin: 0 5px;
+	}
+	
+	.menu {
+		text-align: center;
+		padding-top: 10px;
+		text-transform: uppercase;
+		
+		a {
+			display: block;
+			text-decoration: none;
+		}
+	}
+
+	.mob-menu {
+		display:none;
+	}	
+
+
+	.menu li {
+		margin: 0 20px;
+	}
+
+	.menu li a {
+		font-family: 'rabbit';
+		font-size: 22px;
+	}
+	.menu li a:hover,
+	.menu li a:focus {
+		text-decoration: none;
+	}
+
+	.tagline { display:none; }
+
+	.social .icon {
+		width: 35px;
+		height: 35px;
+		margin-top: 5px;
+	}
+	
+	nav .social { display:none; }
+
+	.main-hide .social .vt-logo {
+		margin: 0 10px;
+	}
+	.main-hide .social .vt-logo .icon {
+		width:39px;
+		height: 60px;
+		margin: 0;
+	}
+}
+
+@media only screen and (max-width: $breakpointTablet) {
+
+
+	.header
+	{
+		position: fixed;
+		width: 100%;
+		z-index: 10;
+		color: #fff;
+
+		.mob-menu {
+			display:block;	
+			position: absolute;
+			top:20px;
+			right: 20px;
+			padding: 10px;
+			
+			i {
+		  		width: 28px;
+				height: 25px;
+			  	background-position: -165px -4px;
+			}
+
+			&.active i {
+				width: 24px;
+				height: 23px;
+		  		background-position: -15px -102px;
+			}
+		}
+
+		.menu { 
+			padding: 0; 
+
+			a {
+				padding:5px;
+				font-size: 28px;
+			}
+		}
+			
+		.social {
+			display: block;
+			text-align: center;
+			
+			a {
+				overflow: hidden;
+				padding: 5px;
+			}
+			
+			li {
+				margin: 0 10px;
+			}
+		}
+
+		.tagline {
+			padding: 10px;
+			text-align: center;
+			font-size: 11px;
+			display: block;
+			border-top: 1px solid #fff;
+			margin: 10px 20px;
+		}
+		
+		.main-hide 
+		{
+			border-bottom: 0;
+
+			.social 
+			{
+				li:not(.vt-logo)
+				{
+					display:none;
+				}
+			}
+		}
+
+		.menu-main-nav-container 
+		{
+			display:none;
+			top: 86px;
+			padding: 20px 0 0;
+			background: rgba(0,0,0,.9);
+			// box-shadow: 0 5px 25px #000;
+			position: absolute;
+			width: 100%;
+			left: 0;
+
+			a 
+			{
+				color: #fff;
+				display: inline-block;
+			}
+			
+			&.show 
+			{
+				display:block;
+			}
+			
+			.social
+			{
+				li:not(.vt-logo) {
+					display: inline-block
+				}	
+				.vt-logo
+				{
+					display: none;
+				}			
+			}
+		}
+
+		#menu-main-nav li {
+			display:block;
+			margin:0;
+		}
+	}
+	
+}

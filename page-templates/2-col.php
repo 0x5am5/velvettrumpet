@@ -14,22 +14,29 @@ $parents = get_post_ancestors( $post->ID );
   <?php while ( have_posts() ) : the_post(); ?>
 
   <h1<?php if(get_field('hide_header')) :  echo ' class="access"';  endif; ?>><?php echo get_the_title($ID); ?></h1>
+
+  <?php if ($_GET['add-to-cart']) : ?>
+    <div class="woocommerce">
+      <div class="woocommerce-message">
+        <a href="cart" class="button wc-forward">View Cart</a> 
+        This item was successfully added to your cart.
+      </div>    
+    </div>
+  <?php endif; ?>
       
     <div class="grid<?php if (get_the_title($ID) == 'Soggy Brass') echo ' soggy-brass'; ?>">
       <div class="col w-50<?php if (get_the_title($ID) == 'Soggy Brass') echo ' left-col'; ?>">
         <div class="pad">
         <?php if (get_field('poster_image')) : ?>
           <div class="poster-large">
-            <img src="<?php echo get_field('poster_image')['url']; ?>" alt="<?php echo get_field('poster_image')['title']; ?>" />
-          </div>
-        <?php endif; ?>
-<?php if (get_field('poster_image_soggy')) : ?>
-          <div class="poster-large">
-            <img src="<?php echo get_field('poster_image_soggy')['url']; ?>" alt="<?php echo get_field('poster_image_soggy')['title']; ?>" />
+            <?php if(get_field('booking_now')) : ?>
+              <span class="icon booking"></span>
+            <?php endif; ?>
+            <img src="<?php echo get_field('poster_image')['url']; ?>" alt="<?php echo get_field('poster_image')['title']; ?>"/>
           </div>
         <?php endif; ?>
         <div class="additional-info">
-        <?php if (get_field('performance_dates')) { ?>
+        <?php if (get_field('performance_dates')) : ?>
           <h2 class="access">Dates of Performance</h2>
           <ol class="bullet-list">
             <?php
@@ -38,26 +45,31 @@ $parents = get_post_ancestors( $post->ID );
               } 
             ?>
           </ol>
-          <?php if($_GET['dev']=='true') {  } ?>
-        <?php } ?>
+        <?php endif; ?>
 
-          <?php if (get_field('running_time')) { echo 'Running time | '.get_field('running_time').' minutes'; } ?>
+        <?php if (get_field('running_time')) { echo '<p>Running time | '.get_field('running_time').' minutes</p>'; } ?>
 
-          <?php if (get_field('next_soggy_brass')) { echo get_field('next_soggy_brass'); }?>
-          <?php 
-            if(get_field('add_to_cart') && $_GET['dev']) { 
+        <?php if (get_field('next_soggy_brass')) { the_field('next_soggy_brass'); } ?>
+        
+        <?php if(get_field('add_to_cart')) : ?>
+                
+            <?php
               $pageURL = $_SERVER["REQUEST_URI"];
+              // $pageURL = $_SERVER['HTTP_HOST'];
 
               if(count($_GET)>0) {
                 $pageURL .= '&add-to-cart=';
               } else {
                 $pageURL .= '?add-to-cart=';
               }       
-              $pageURL .= get_field('add_to_cart');           
-          ?>
-              <a href="<?php echo $pageURL; ?>" title="Add to cart" class="button"> Add to cart</a>
+              $pageURL .= get_field('add_to_cart'); 
+            ?>
               
-          <?php } ?>
+              <p>
+                <a href="<?php echo $pageURL; ?>" title="Book now" class="button button--buy">Book now!</a>                
+              </p>
+                
+            <?php endif; ?>
           </div>
           
         </div>
@@ -119,7 +131,8 @@ $parents = get_post_ancestors( $post->ID );
       
       </div>
 
-      <?php if (get_field('reviews')) : ?><h2 class="access">Reviews</h2>
+      <?php if (get_field('reviews')) : ?>
+        <h2 class="access">Reviews</h2>
         <div class="reviews">
         <?php
            while( has_sub_field('reviews') ): 
@@ -129,18 +142,18 @@ $parents = get_post_ancestors( $post->ID );
         </div>
       <?php endif; ?>
 
-	<?php if ( get_field('performance_images') && $_GET['dev'] ) : ?>
-	<?php $i = 0; ?>
-	<div class="performance-images">
-	<div class="grid">
-		<?php while( has_sub_field('performance_images') ): ?>
-			<?php $i++; ?>
-			<div class="col w-25"><a href="<?php echo get_sub_field('image')['url']; ?>" data-lightbox="images"><img src="<?php echo get_sub_field('image')['sizes']['thumbnail']; ?>" alt="image-<?php echo $i; ?>"/><span class="shade"></span></a></div>
-			<?php if ($i % 4 == 0)  echo '</div><div class="grid">'; ?>
-		<?php endwhile; ?>
-	</div>
-	</div>
-	<?php endif; ?>
+    	<?php if ( get_field('performance_images') && $_GET['dev'] ) : ?>
+    	 <?php $i = 0; ?>
+    	 <div class="performance-images">
+    	   <div class="grid">
+      		<?php while( has_sub_field('performance_images') ): ?>
+      			<?php $i++; ?>
+      			<div class="col w-25"><a href="<?php echo get_sub_field('image')['url']; ?>" data-lightbox="images"><img src="<?php echo get_sub_field('image')['sizes']['thumbnail']; ?>" alt="image-<?php echo $i; ?>"/><span class="shade"></span></a></div>
+      			<?php if ($i % 4 == 0)  echo '</div><div class="grid">'; ?>
+      		<?php endwhile; ?>
+    	   </div>
+    	</div>
+    	<?php endif; ?>
     </div>
   <?php endwhile; ?>
 </div>
