@@ -6,11 +6,25 @@
 
 .col {
 	float: left;
+
+	// &:first-child .pad 
+	// {
+	// 	padding-left: 0;
+	// }
+
+	// &:last-child .pad 
+	// {
+	// 	padding-right: 0;
+	// }
 }
+
+.w-60 { width: 60%; }
 
 .w-50 { width: 50%; }
 
 .w-33 { width: 33.33%; }
+
+.w-30 { width: 30%; }
 
 .w-25 { width:25%; }
 
