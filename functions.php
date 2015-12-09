@@ -18,9 +18,9 @@ add_action( 'widgets_init', 'arphabet_widgets_init' );
 
 function load_scripts() {
 	if (!is_admin()) {
-		wp_deregister_script('jquery');
+		// wp_deregister_script('jquery');
 		// load the local copy of jQuery in the footer
-		wp_register_script('jquery', '/wp-includes/js/jquery/jquery.js', false, '1.11.1');
+		// wp_register_script('jquery', '/wp-includes/js/jquery/jquery.js', false, '1.11.1');
 		wp_enqueue_script('jquery');
 	    wp_enqueue_script('themeJs', get_template_directory_uri(). '/js/main.js', array('jquery'), '1');
 		wp_enqueue_style( 'themeCss', get_stylesheet_uri());

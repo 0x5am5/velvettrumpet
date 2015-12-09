@@ -2,7 +2,7 @@
 <h2>The Velvet Trumpeteers</h2>
 <div class="grid employees">
 	<?php while( has_sub_field('staff_member') ): ?>
-		<div class="col <?php if ($i < 3 ) echo 'w-33'; else echo 'w-50'; ?>">
+		<div class="col w-33">
 			<div class="inner">
 				<?php if (the_sub_field('image')) : ?>
 					<img src="<?php echo get_sub_field('image')['url']; ?>" alt="<?php echo get_sub_field('image')['alt']; ?>">

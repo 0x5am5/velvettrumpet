@@ -36,15 +36,8 @@
 		endif;
 			
 
-		if (get_the_title() === 'Soggy Brass') {
-			
-			get_template_part( 'template-parts/content', 'soggy-brass' );
+		the_content();
 
-		} else {
-
-			the_content();
-
-		}
 
 	endwhile; ?>
 

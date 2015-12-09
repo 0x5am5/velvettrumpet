@@ -11,7 +11,7 @@ module.exports = function(grunt) {
     uglify: {
       my_target: {
         files: {
-          'js/scripts.js': 'components/js/main.js'
+          'js/main.js': 'components/js/main.js'
         }
       }
     },
