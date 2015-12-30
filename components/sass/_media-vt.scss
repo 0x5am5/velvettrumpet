@@ -139,6 +139,16 @@ body { min-width:320px; }
 
 	.mob-menu {
 		display:block;	
+
+		i { 
+			width: 28px;
+			height: 30px;
+			background-position: -204px -37px; 
+		}
+		
+		&.active i { 
+			background-position: -2px -205px;
+		}
 	}
 
 	.footer .tweets {

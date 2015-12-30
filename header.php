@@ -13,7 +13,7 @@
 		<meta property="og:image" content="http://www.velvettrumpet.co.uk/wp-content/themes/velvettrumpetforteen/images/vt-logo.jpg">
 		<link rel="apple-touch-icon" href="http://www.velvettrumpet.co.uk/wp-content/themes/velvettrumpetforteen/images/vt-icon.png" />
 		<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/favicon.ico" />	
-		<meta name="viewport" content="width=device-width, maximum-scale=1, user-scalable=no">
+		<meta name="viewport" content="width=device-width">
 	
 		<?php wp_head(); ?>
 

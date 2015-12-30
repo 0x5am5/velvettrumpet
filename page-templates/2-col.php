@@ -13,19 +13,21 @@ $parents = get_post_ancestors( $post->ID );
 
   <?php while ( have_posts() ) : the_post(); ?>
 
-  <h1<?php if(get_field('hide_header')) :  echo ' class="access"';  endif; ?>><?php echo get_the_title($ID); ?></h1>
+    <?php $page_title = get_the_title($ID); ?>
 
-  <?php if ($_GET['add-to-cart']) : ?>
-    <div class="woocommerce">
-      <div class="woocommerce-message">
-        <a href="cart" class="button wc-forward">View Cart</a> 
-        This item was successfully added to your cart.
-      </div>    
-    </div>
-  <?php endif; ?>
+    <h1<?php if(get_field('hide_header')) :  echo ' class="access"';  endif; ?>><?php echo get_the_title($ID); ?></h1>
+
+    <?php if ($_GET['add-to-cart']) : ?>
+      <div class="woocommerce">
+        <div class="woocommerce-message">
+          <a href="cart" class="button wc-forward">View Cart</a> 
+          This item was successfully added to your cart.
+        </div>    
+      </div>
+    <?php endif; ?>
       
-    <div class="grid<?php if (get_the_title($ID) == 'Soggy Brass') echo ' soggy-brass'; ?>">
-      <div class="col w-50<?php if (get_the_title($ID) == 'Soggy Brass') echo ' left-col'; ?>">
+    <div class="grid<?php if ($page_title == 'Soggy Brass') : echo ' soggy-brass'; endif; ?>">
+      <div class="col w-50<?php if ($page_title == 'Soggy Brass') echo ' left-col'; ?>">
         <div class="pad">
         <?php if (get_field('poster_image')) : ?>
           <div class="poster-large">
@@ -74,14 +76,14 @@ $parents = get_post_ancestors( $post->ID );
           
         </div>
       </div>
-      <div class="col w-50<?php if (apply_filters("the_title", get_the_title(end($parents))) === 'Productions') echo ' production'; if (get_the_title($ID) == 'Soggy Brass') echo ' right-col'; ?>">
-        <?php if (get_the_title($ID) != 'Soggy Brass') { ?>
-          <div class="h2"><?php echo get_the_title($ID); ?></div>
+      <div class="col w-50<?php if (apply_filters("the_title", get_the_title(end($parents))) === 'Productions') echo ' production'; if ($page_title == 'Soggy Brass') echo ' right-col'; ?>">
+        <?php if ($page_title != 'Soggy Brass') { ?>
+          <div class="h2"><?php echo $page_title; ?></div>
         <?php } ?>
         <?php if (get_field('tagline')) : ?>
           <em class="tagline">'<?php echo get_field('tagline'); ?>'</em>
         <?php endif; ?>
-        <?php if (get_the_title($ID) != 'Soggy Brass') { ?>
+        <?php if ($page_title != 'Soggy Brass') { ?>
           <h2 class="access">Synopsis</h2>        
         <?php } ?>
         <?php echo the_content(); ?>
@@ -142,18 +144,13 @@ $parents = get_post_ancestors( $post->ID );
         </div>
       <?php endif; ?>
 
-    	<?php if ( get_field('performance_images') && $_GET['dev'] ) : ?>
-    	 <?php $i = 0; ?>
-    	 <div class="performance-images">
-    	   <div class="grid">
-      		<?php while( has_sub_field('performance_images') ): ?>
-      			<?php $i++; ?>
-      			<div class="col w-25"><a href="<?php echo get_sub_field('image')['url']; ?>" data-lightbox="images"><img src="<?php echo get_sub_field('image')['sizes']['thumbnail']; ?>" alt="image-<?php echo $i; ?>"/><span class="shade"></span></a></div>
-      			<?php if ($i % 4 == 0)  echo '</div><div class="grid">'; ?>
-      		<?php endwhile; ?>
-    	   </div>
-    	</div>
-    	<?php endif; ?>
+      <?php get_template_part( 'template-parts/content', 'performance-images' ); ?>
+      
+      <?php 
+        set_query_var( 'parents', $parents );
+        get_template_part( 'template-parts/content', 'post-nav' ); 
+      ?>
+
     </div>
   <?php endwhile; ?>
 </div>
