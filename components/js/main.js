@@ -54,26 +54,4 @@ jQuery(function ($) {
 	    	$('.menu').animate({ bottom: '-55px' }, 'slow');	
 		}, 100);
 	}
-
-	var shippingAddress = $('.shipping_address');
-	var createAccount = $('.create-account').not('.form-row');
-
-	$('#ship-to-different-address-checkbox').on('click', function(e) {
-
-		if (e.currentTarget.checked) {
-			shippingAddress.show();
-			
-		} else {
-			shippingAddress.hide();			
-		}
-	}).triggerHandler('click');
-
-	$('.payment_methods input:radio').on('click', function(e) {
-		$('.payment_box').hide();
-		$('.payment_box.' + e.currentTarget.id).show();
-	});
-
-	$('#createaccount').on('change', function() {
-		createAccount.toggle();
-	}).triggerHandler('change');
 });

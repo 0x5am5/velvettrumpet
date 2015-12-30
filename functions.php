@@ -17,18 +17,17 @@ function arphabet_widgets_init() {
 add_action( 'widgets_init', 'arphabet_widgets_init' );
 
 function load_scripts() {
-	if (!is_admin()) {
-		// wp_deregister_script('jquery');
-		// load the local copy of jQuery in the footer
-		// wp_register_script('jquery', '/wp-includes/js/jquery/jquery.js', false, '1.11.1');
-		wp_enqueue_script('jquery');
-	    wp_enqueue_script('themeJs', get_template_directory_uri(). '/js/main.js', array('jquery'), '1');
+	    wp_enqueue_script('themeJs', get_template_directory_uri(). '/js/main.js', array('jquery'), '1.0.0', true);
 		wp_enqueue_style( 'themeCss', get_stylesheet_uri());
-		//wp_enqueue_style( 'wooCommerceCss', get_template_directory_uri(). '/css/woocommerce.css');
-
-	}
 }
-if (!is_admin()) { add_action( 'wp_enqueue_scripts', 'load_scripts' ); }
+sdd_action( 'wp_enqueue_scripts', 'load_scripts' );
+
+/**
+ * Add theme support
+ *
+*/
+add_theme_support( 'woocommerce' ); 
+
 
 /**
  * Remove reviews
@@ -105,12 +104,6 @@ function my_login_logo_url_title() {
     return 'Velvet Trumpet Theatre Co';
 }
 add_filter( 'login_headertitle', 'my_login_logo_url_title' );
-
-// Remove Woocommerce style
-function woocommerce_support() {
-    add_theme_support( 'woocommerce' );
-}
-add_action( 'after_setup_theme', 'woocommerce_support' );
 
 /**
  * Customising menu
