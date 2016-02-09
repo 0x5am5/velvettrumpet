@@ -10,8 +10,8 @@
 <!--<![endif]-->
 	<head>
 		<title><?php bloginfo('name'); ?> - <?php echo get_the_title($ID); ?></title>		
-		<meta property="og:image" content="http://www.velvettrumpet.co.uk/wp-content/themes/velvettrumpetforteen/images/vt-logo.jpg">
-		<link rel="apple-touch-icon" href="http://www.velvettrumpet.co.uk/wp-content/themes/velvettrumpetforteen/images/vt-icon.png" />
+		<meta property="og:image" content="<?php bloginfo('template_directory'); ?>/images/vt-logo.jpg">
+		<link rel="apple-touch-icon" href="<?php bloginfo('template_directory'); ?>/images/vt-icon.png" />
 		<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/favicon.ico" />	
 		<meta name="viewport" content="width=device-width">
 	

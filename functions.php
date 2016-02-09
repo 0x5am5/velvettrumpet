@@ -20,7 +20,7 @@ function load_scripts() {
 	    wp_enqueue_script('themeJs', get_template_directory_uri(). '/js/main.js', array('jquery'), '1.0.0', true);
 		wp_enqueue_style( 'themeCss', get_stylesheet_uri());
 }
-sdd_action( 'wp_enqueue_scripts', 'load_scripts' );
+add_action( 'wp_enqueue_scripts', 'load_scripts' );
 
 /**
  * Add theme support
@@ -119,12 +119,14 @@ add_action( 'admin_menu', 'customize_post_admin_menu_labels' );
 */
 function wpse_73006_submenu_order( $menu_ord ) 
 {
+
   	if (wp_get_current_user()->user_login != "admin" && wp_get_current_user()->user_login != "samuel") :
     	global $menu;
 
 		$arr = array();
 		$arr[] = $menu[2];  // Dashboard 
 		$arr[] = $menu[4];  // Separator 1      
+		$arr[] = $menu[5]; // Posts
 		$arr[] = $menu[20]; // Pages
 		$arr[] = $menu[10]; // Media
 		$arr[] = $menu[59]; // Separator 2

@@ -21,9 +21,11 @@ $parents = get_post_ancestors( $post->ID );
 		endif; ?>
 
 		<div class="soggybrass">
-			<div class="soggy-info">
-				<?php the_field('information'); ?>
-			</div>
+			<?php if (get_field('information')) : ?>
+				<div class="soggy-info">
+					<?php the_field('information'); ?>
+				</div>
+			<?php endif; ?>
 
 			<div class="grid">
 				<div class="col w-50">
@@ -36,7 +38,32 @@ $parents = get_post_ancestors( $post->ID );
 						<?php the_field('soggy_how'); ?>												
 					</div>
 				</div>
-			</div>				
+			</div>	
+			
+			<div class="grid">
+				<div class="pad">
+					<?php the_content(); ?>					
+					<?php if (get_the_title($ID) === 'Soggy Brass') : ?>
+						<ul style="display: none;">
+						<?php
+
+							$args = array('category' => 'soggy brass', 'orderby' => 'date');
+
+							foreach ( get_posts( $args ) as $post ) : setup_postdata( $post ); ?>
+								<?php $year = the_date( 'Y'); ?>
+								<?php $prevYear; ?>
+								<?php if ($year > $prevYear) echo '</ul>'.$year.'<ul>'; ?>
+									<li>
+										<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+									</li>
+								<?php $prevYear = $year; ?>
+							<?php endforeach; 
+							wp_reset_postdata();?>
+						</ul>
+
+					<?php endif; ?>
+				</div>
+			</div>
 		</div>
 		<?php endwhile; ?>
 	</div>		

@@ -34,75 +34,20 @@ include 'twitter.php';
 						</a>
 					</div>
 					<div class="other">
-						<!-- <div class="row"> -->
-							<!-- <div class="col w-25"> -->
-								<h2 class="access">menu</h2>
-								<? //php $args = array(
-								// 	'sort_order' => '',
-								// 	'sort_column' => 'post_title',
-								// 	'child_of' => 38,
-								// 	'post_status' => 'publish'
-								// ); 
-								// $pages = get_pages($args); 
-								?>
-								 <?php //foreach ( $pages as $page ) {
-									// 	echo '<li>';
-									// 	echo '<a href="'.get_page_link( $page->ID ).'">';
-									// 	echo $page->post_title;
-									// 	echo '</a>';
-									// 	echo '</li>';
-									//   } 
-									wp_nav_menu(array('menu' => 'Main Nav', 'container'=>0));
-								?>
-							<!-- </div>		 -->
-							<!-- <div class="col w-50"></div> -->
-							<!-- <div class="col w-25"> -->
-								<!-- <h2 class="access">Instagram</h2> -->
-								<!-- <ul class="insta-slide slideshow"> -->
-								<?php 
-								// 	foreach ($feed->data as $key => $post) {
-								// 		$text = myTruncate($post->caption->text, 50, " ");
-								// 		$comments = $post->comments->count;
-								// 		$likes = $post->likes->count;
-
-								// 		if ($key == 0) echo '<li class="show">';
-								// 		else echo '<li>';
-								// 		echo '<a href="'.$post->link.'" target="_blank">';
-								// 		echo '<img src="'.$post->images->low_resolution->url.'" alt="'.$text.'">';
-								// 		echo '</a>';
-								// 		echo '<p>'.$text.'</p>';
-								// 		if ($comments > 0) { echo 'Comments: '.$post->comments->count; }
-								// 		if ($comments > 0 && $likes > 0) { echo ' | '; }
-								// 		if ($likes > 0) {echo 'Likes: '.$post->likes->count; }
-								// 		echo '</li>';
-								// 	}
-								// 	function myTruncate($string, $limit, $break=".", $pad="...")
-								// 	{
-								// 	  // return with no change if string is shorter than $limit
-								// 	  if(strlen($string) <= $limit) return $string;
-
-								// 	  // is $break present between $limit and the end of the string?
-								// 	  if(false !== ($breakpoint = strpos($string, $break, $limit))) {
-								// 	    if($breakpoint < strlen($string) - 1) {
-								// 	      $string = substr($string, 0, $breakpoint) . $pad;
-								// 	    }
-								// 	  }
-
-								// 	  return $string;
-								// 	}
-								?>
-							<!-- </ul> -->
-						<!-- </div> -->
+						<h2 class="access">menu</h2>
+						<?php wp_nav_menu(array('menu' => 'Main Nav', 'container'=>0)); ?>
 					</div>
 					<div class="copywrite">
 						<p>
 							&copy; Velvet Trumpet <?php echo date("Y"); ?> </br>
 							14 Winchelsea House, Swan Road, Rotherhithe, London, SE16 4LH
 						</p>
+						<img class="itc-logo" src="<?php bloginfo('template_directory'); ?>/images/itc_logo.jpg">
 					</div>
 					<?php apply_filters( 'woocommerce_product_add_to_cart_url', get_permalink( 634 ), $this );?>					
 				</div>
 			</div>
-		</footer>				
+		</footer>	
+		<?php wp_footer(); ?> 			
 	</body>
 </html>

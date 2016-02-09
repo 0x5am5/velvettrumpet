@@ -1,7 +1,19 @@
 <?php if( get_field('slider') ): ?>
-	<?php $i = 0 ?>
-	<?php $images = get_field('slider'); ?>
-	<?php shuffle($images) ?>
+	<?php 
+		$i = 0;
+		$images;
+		
+		if (get_field_object('animate_slider')['value']) :		
+			$images = get_field('slider');
+			shuffle($images);
+		else :
+			$images = [get_field('slider')[0]];
+		endif; 
+	?>
+	<div style="display:none;">
+		<?php echo get_field_object('animate_slider')['value']; ?>
+		<?php var_dump($images); ?>
+	</div>
 	<ul class="slideshow">
 		<?php foreach($images as $value) { ?>
 		<?php 
