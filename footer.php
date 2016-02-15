@@ -42,7 +42,7 @@ include 'twitter.php';
 							&copy; Velvet Trumpet <?php echo date("Y"); ?> </br>
 							14 Winchelsea House, Swan Road, Rotherhithe, London, SE16 4LH
 						</p>
-						<img class="itc-logo" src="<?php bloginfo('template_directory'); ?>/images/itc_logo.jpg">
+						<img class="itc-logo" srcset="<?php bloginfo('template_directory'); ?>/images/itc_logo.jpg, <?php bloginfo('template_directory'); ?>/images/itc_logo@2x.jpg 2x">				
 					</div>
 					<?php apply_filters( 'woocommerce_product_add_to_cart_url', get_permalink( 634 ), $this );?>					
 				</div>
