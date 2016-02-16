@@ -12,19 +12,16 @@
 }
 
 body {
-	font-family: 'cochin', 'times', 'serif';
-	font-size: 14px;
-	color: #000;
-	line-height: 1.5;
-	margin: 0;
-	min-width: 320px;
+	// margin: 0;
+	// min-width: 320px;
 }
 
 hr.trumpet {
 	border:none;
 	margin: 26px 0;
-position:relative;
+	position:relative;
 }
+
 hr.trumpet:after {
 	content:" ";
 	display:inline-block;
@@ -46,21 +43,9 @@ img {
 	}
 }
 
-
-a:link {
-	color: #000;
-}
-a:visited {
-	color: #000;
-}
-
-
-
-a:hover, 
-a:focus,
 .menu .current-menu-item a,
 .menu .current-page-ancestor a {
-	color: #bfa043;
+	// color: #bfa043;
 }
 
 a:focus {
@@ -124,7 +109,7 @@ h3, .h3 {
 
 h1, .h1,
 h2, .h2 {
-	font-family: 'rabbit';
+	// font-family: 'rabbit';
 }
 
 h1, .h1 {
