@@ -7,64 +7,75 @@
 	}
 
 	.main-hide {
-  		border-bottom: 1px solid #000;
+  	border-bottom: 1px solid #000;
 		text-align: center;
 		padding: 10px 0;
 		margin: 0 20px;
 		z-index: 1001;
+
+		.social .vt-logo {
+			margin: 0 10px;
+		}
+
+		.social .vt-logo .icon {
+			width:39px;
+			height: 60px;
+			margin: 0;
+		}		
 	}
 
-	.social li {
-		margin: 0 5px;
+	.social {
+		.icon {
+			width: 35px;
+			height: 35px;
+			margin-top: 5px;
+		}
+		
+		li {
+			margin: 0 5px;
+		}
 	}
 	
 	.menu {
 		text-align: center;
-		padding-top: 10px;
 		text-transform: uppercase;
+		margin-bottom: 0;
 		
 		a {
 			display: block;
 			text-decoration: none;
+			font-family: 'rabbit';
+			font-size: 22px;
+
+			&:hover,
+			&:focus {
+				text-decoration: none;
+			}
 		}
+
+		li {
+			margin: 0 20px;
+		} 
 	}
 
 	.mob-menu {
 		display:none;
 	}	
 
-
-	.menu li {
-		margin: 0 20px;
-	}
-
-	.menu li a {
-		font-family: 'rabbit';
-		font-size: 22px;
-	}
-	.menu li a:hover,
-	.menu li a:focus {
-		text-decoration: none;
-	}
-
-	.tagline { display:none; }
-
-	.social .icon {
-		width: 35px;
-		height: 35px;
-		margin-top: 5px;
+	.current_page_item {
+		a {
+			color: $vt-gold;
+		}
 	}
 	
-	nav .social { display:none; }
+	.tagline { display:none; }
 
-	.main-hide .social .vt-logo {
-		margin: 0 10px;
+	.menu-main-nav-container {
+		.social {
+			display: none;
+		}
 	}
-	.main-hide .social .vt-logo .icon {
-		width:39px;
-		height: 60px;
-		margin: 0;
-	}
+
 }
 
 @media only screen and (max-width: $breakpointTablet) {

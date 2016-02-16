@@ -26,8 +26,8 @@ $parents = get_post_ancestors( $post->ID );
       </div>
     <?php endif; ?>
       
-    <div class="grid<?php if ($page_title == 'Soggy Brass') : echo ' soggy-brass'; endif; ?>">
-      <div class="col w-50<?php if ($page_title == 'Soggy Brass') echo ' left-col'; ?>">
+    <div class="row<?php if ($page_title == 'Soggy Brass') : echo ' soggy-brass'; endif; ?>">
+      <div class="col-md-6<?php if ($page_title == 'Soggy Brass') echo ' left-col'; ?>">
         <div class="pad">
         <?php if (get_field('poster_image')) : ?>
           <div class="poster-large">
@@ -76,7 +76,7 @@ $parents = get_post_ancestors( $post->ID );
           
         </div>
       </div>
-      <div class="col w-50<?php if (apply_filters("the_title", get_the_title(end($parents))) === 'Productions') echo ' production'; if ($page_title == 'Soggy Brass') echo ' right-col'; ?>">
+      <div class="col-md-6<?php if (apply_filters("the_title", get_the_title(end($parents))) === 'Productions') echo ' production'; if ($page_title == 'Soggy Brass') echo ' right-col'; ?>">
         <?php if ($page_title != 'Soggy Brass') { ?>
           <div class="h2"><?php echo $page_title; ?></div>
         <?php } ?>

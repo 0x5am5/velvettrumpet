@@ -7,15 +7,6 @@
 	color:#FFF;
 }
 
-* {
-	box-sizing: border-box;
-}
-
-body {
-	// margin: 0;
-	// min-width: 320px;
-}
-
 hr.trumpet {
 	border:none;
 	margin: 26px 0;
@@ -56,8 +47,6 @@ a:link.button,
 .button {
 	padding: 10px 15px;
 	background-color: #631a1a;
-	// -webkit-border-radius: 5px;
-	// -moz-border-radius: 5px;
 	border-radius: 5px;
 	text-decoration: none;
 	border:none;

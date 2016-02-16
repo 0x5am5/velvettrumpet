@@ -17,17 +17,20 @@ include 'twitter.php';
 			<div class="footer">
 				<div class="inner">
 					<div class="tweets">
-						<h2 class="access">Twitter feed</h2>							
-						<ul class="slideshow clearfix">					
-							<?php 
-							
-								foreach ($tweets as $key => $value) {
-									if ($key == 0) echo '<li class="show">';
-									else echo '<li>';
-									echo '<a href="https://twitter.com/velvettrumpet/status/'.$value->id_str.'" target="_blank">'.$value->text.'</a></li>';
-								}
-							?>
-						</ul>
+						<h2 class="access">Twitter feed</h2>		
+						<div class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner" role="listbox">					
+								<?php 
+									foreach ($tweets as $key => $value) {
+										if ($key == 0) echo '<div class="item active">';
+										else echo '<div class="item">';
+
+										echo '<a href="https://twitter.com/velvettrumpet/status/'.$value->id_str.'" target="_blank">'.$value->text.'</a></li>';
+										echo '</div>';
+									}
+								?>
+							</ul>
+						</div>					
 						<a href="http://twitter.com/velvettrumpet" target="_blank" title="Follow us on Twitter">
 							<span class="access">Follow us on Twitter</span>
 							<span class="icon twitter"></span>

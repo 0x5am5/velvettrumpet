@@ -27,21 +27,16 @@ $parents = get_post_ancestors( $post->ID );
 				</div>
 			<?php endif; ?>
 
-			<div class="grid">
-				<div class="col w-50">
-					<div class="pad alpha">
+			<div class="row">
+				<div class="col-md-4">
 						<?php the_field('soggy_what'); ?>							
-					</div>
 				</div>
-				<div class="col w-50">
-					<div class="pad omega">
+				<div class="col-md-4">
 						<?php the_field('soggy_how'); ?>												
-					</div>
 				</div>
 			</div>	
 			
-			<div class="grid">
-				<div class="pad">
+			<div class="row">
 					<?php the_content(); ?>					
 					<?php if (get_the_title($ID) === 'Soggy Brass') : ?>
 						<ul style="display: none;">
@@ -62,7 +57,6 @@ $parents = get_post_ancestors( $post->ID );
 						</ul>
 
 					<?php endif; ?>
-				</div>
 			</div>
 		</div>
 		<?php endwhile; ?>
