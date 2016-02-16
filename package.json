@@ -5,6 +5,7 @@
   "main": "index.php",
   "author": "Sam Gregory",
   "devDependencies": {
+    "bootstrap-sass": "^3.3.6",
     "grunt": "^0.4.5",
     "grunt-autoprefixer": "^3.0.3",
     "grunt-contrib-copy": "^0.8.0",

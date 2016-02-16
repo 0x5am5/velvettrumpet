@@ -21,6 +21,9 @@ Author URI: http://www.samgregorydigital.co.uk
 @import 'soggybrass';
 @import 'production';
 
+/*! Bootstrap */
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
+
 
 
 .additional-info.mobile { display:none; }

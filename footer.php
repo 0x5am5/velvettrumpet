@@ -18,7 +18,7 @@ include 'twitter.php';
 				<div class="inner">
 					<div class="tweets">
 						<h2 class="access">Twitter feed</h2>							
-						<ul class="slideshow">					
+						<ul class="slideshow clearfix">					
 							<?php 
 							
 								foreach ($tweets as $key => $value) {
@@ -35,7 +35,7 @@ include 'twitter.php';
 					</div>
 					<div class="other">
 						<h2 class="access">menu</h2>
-						<?php wp_nav_menu(array('menu' => 'Main Nav', 'container'=>0)); ?>
+						<?php wp_nav_menu(array('menu' => 'Main Nav', 'container_class'=>'row')); ?>
 					</div>
 					<div class="copywrite">
 						<p>
