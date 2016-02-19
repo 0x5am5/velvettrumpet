@@ -29,27 +29,68 @@
 			<div class="header">
 				<div class="main-hide">
 					<ul class="social list-inline">
-						<li><a href="http://www.facebook.com/velvettrumpet" target="_blank" title="Like us on Facebook"><span class="access">Go to our Facebook page</span><span class="icon facebook"></span></a></li>
-						<li><a href="http://www.twitter.com/velvettrumpet" target="_blank" title="Follow us on Twitter"><span class="access">Go to our Twitter page</span><span class="icon twitter"></span></a></li>
-						<li class="vt-logo"><span class="menu-trigger icon show-hide"></span></li>
-						<li><a href="https://www.instagram.com/velvettrumpet" target="_blank" title="Follow us on Instagram"><span class="access">Go to our Instagram page</span><span class="icon instagram"></span></a></li>
-						<li><a href="mailto:info@velvettrumpet.co.uk" title="Drop us an email"><span class="access">Email us at info@velvettrumpet.co.uk</span><span class="icon mail"></span></a></li>
+						<li class="hidden-xs">
+							<a href="http://www.facebook.com/velvettrumpet" target="_blank" title="Like us on Facebook">
+								<span class="sr-only">Go to our Facebook page</span>
+								<span class="icon facebook"></span>
+							</a>
+						</li>
+						<li class="hidden-xs">
+							<a href="http://www.twitter.com/velvettrumpet" target="_blank" title="Follow us on Twitter">
+								<span class="sr-only">Go to our Twitter page</span>
+								<span class="icon twitter"></span>
+							</a>
+						</li>
+						<li><span class="menu-trigger icon vt-logo show-hide"></span></li>
+						<li class="hidden-xs">
+							<a href="https://www.instagram.com/velvettrumpet" target="_blank" title="Follow us on Instagram">
+								<span class="sr-only">Go to our Instagram page</span>
+								<span class="icon instagram"></span>
+							</a>
+						</li>
+						<li class="hidden-xs">
+							<a href="mailto:info@velvettrumpet.co.uk" title="Drop us an email">
+								<span class="sr-only">Email us at info@velvettrumpet.co.uk</span>
+								<span class="icon mail"></span>
+							</a>
+						</li>
 					</ul>
 					
 					<a href="#" class="mob-menu">
-						<span class="access">Show menu</span>
-						<i class="icon"></i>
+						<span class="sr-only">Show menu</span>
+						<span class="glyphicon glyphicon-menu-hamburger"></span>
+						<span class="glyphicon glyphicon-remove"></span>
 					</a>
 					<nav>
 						<div class="menu-main-nav-container">
-							<?php wp_nav_menu(array('menu' => 'Main Nav', 'container'=>0)); ?>
+							<?php wp_nav_menu(array('menu' => 'Main Nav', 'container'=>0, 'menu_class' => 'list-inline list-unstyled')); ?>
 						
 							<ul class="social list-inline">
-								<li><a href="http://www.facebook.com/velvettrumpet" target="_blank" title="Like us on Facebook"><span class="access">Go to our Facebook page</span><span class="icon facebook"></span></a></li>
-								<li><a href="http://www.twitter.com/velvettrumpet" target="_blank" title="Follow us on Twitter"><span class="access">Go to our Twitter page</span><span class="icon twitter"></span></a></li>
+								<li>
+									<a href="http://www.facebook.com/velvettrumpet" target="_blank" title="Like us on Facebook">
+										<span class="sr-only">Go to our Facebook page</span>
+										<span class="icon facebook"></span>
+									</a>
+							</li>
+								<li>
+									<a href="http://www.twitter.com/velvettrumpet" target="_blank" title="Follow us on Twitter">
+										<span class="sr-only">Go to our Twitter page</span>
+										<span class="icon twitter"></span>
+									</a>
+							</li>
 								<li class="vt-logo"><span class="menu-trigger icon show-hide"></span></li>
-								<li><a href="https://www.instagram.com/velvettrumpet" target="_blank" title="Follow us on Instagram"><span class="access">Go to our Instagram page</span><span class="icon instagram"></span></a></li>
-								<li><a href="mailto:info@velvettrumpet.co.uk" title="Drop us an email"><span class="access">Email us at info@velvettrumpet.co.uk</span><span class="icon mail"></span></a></li>				
+								<li>
+									<a href="https://www.instagram.com/velvettrumpet" target="_blank" title="Follow us on Instagram">
+										<span class="sr-only">Go to our Instagram page</span>
+										<span class="icon instagram"></span>
+									</a>
+							</li>
+								<li>
+									<a href="mailto:info@velvettrumpet.co.uk" title="Drop us an email">
+										<span class="sr-only">Email us at info@velvettrumpet.co.uk</span>
+										<span class="icon mail"></span>
+									</a>
+								</li>				
 							</ul>
 							<div class="tagline">South London-based purveyors of original theatrical humour since 2012.</div>
 						</div>		

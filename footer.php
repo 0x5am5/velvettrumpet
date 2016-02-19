@@ -16,9 +16,9 @@ include 'twitter.php';
 		<footer>
 			<div class="footer">
 				<div class="inner">
-					<div class="tweets">
-						<h2 class="access">Twitter feed</h2>		
-						<div class="carousel slide" data-ride="carousel">
+					<div class="container">
+						<h2 class="sr-only">Twitter feed</h2>		
+						<div class="carousel slide twitter-ticker" data-ride="carousel">
 							<div class="carousel-inner" role="listbox">					
 								<?php 
 									foreach ($tweets as $key => $value) {
@@ -31,22 +31,20 @@ include 'twitter.php';
 								?>
 							</ul>
 						</div>					
-						<a href="http://twitter.com/velvettrumpet" target="_blank" title="Follow us on Twitter">
-							<span class="access">Follow us on Twitter</span>
-							<span class="icon twitter"></span>
-						</a>
 					</div>
-					<div class="other">
-						<h2 class="access">menu</h2>
-						<?php wp_nav_menu(array('menu' => 'Main Nav', 'container_class'=>'row')); ?>
-					</div>
+					<a href="http://twitter.com/velvettrumpet" target="_blank" title="Follow us on Twitter" class="twitter-link">
+						<span class="sr-only">Follow us on Twitter</span>
+						<span class="icon twitter"></span>
+					</a>
+					<h2 class="sr-only">menu</h2>
+					<?php wp_nav_menu(array('menu' => 'Main Nav', 'menu_class' => 'list-unstyled menu clearfix')); ?>
 					<div class="copywrite">
 						<p>
 							&copy; Velvet Trumpet <?php echo date("Y"); ?> </br>
 							14 Winchelsea House, Swan Road, Rotherhithe, London, SE16 4LH
-						</p>
-						<img class="itc-logo" srcset="<?php bloginfo('template_directory'); ?>/images/itc_logo.jpg, <?php bloginfo('template_directory'); ?>/images/itc_logo@2x.jpg 2x">				
+						</p>						
 					</div>
+					<img class="itc-logo" srcset="<?php bloginfo('template_directory'); ?>/images/itc_logo.jpg, <?php bloginfo('template_directory'); ?>/images/itc_logo@2x.jpg 2x">				
 					<?php apply_filters( 'woocommerce_product_add_to_cart_url', get_permalink( 634 ), $this );?>					
 				</div>
 			</div>

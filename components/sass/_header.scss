@@ -9,41 +9,15 @@
 	.main-hide {
   	border-bottom: 1px solid #000;
 		text-align: center;
-		padding: 10px 0;
+		padding-top: 10px;
 		margin: 0 20px;
 		z-index: 1001;
-
-		.social .vt-logo {
-			margin: 0 10px;
-		}
-
-		.social .vt-logo .icon {
-			width:39px;
-			height: 60px;
-			margin: 0;
-		}		
-	}
-
-	.social {
-		.icon {
-			width: 35px;
-			height: 35px;
-			margin-top: 5px;
-		}
-		
-		li {
-			margin: 0 5px;
-		}
 	}
 	
-	.menu {
-		text-align: center;
+	.menu-main-nav-container {
 		text-transform: uppercase;
-		margin-bottom: 0;
 		
 		a {
-			display: block;
-			text-decoration: none;
 			font-family: 'rabbit';
 			font-size: 22px;
 
@@ -56,6 +30,10 @@
 		li {
 			margin: 0 20px;
 		} 
+	}
+	
+	.social li {
+		padding: 0 10px;
 	}
 
 	.mob-menu {
@@ -85,8 +63,7 @@
 	{
 		position: fixed;
 		width: 100%;
-		z-index: 10;
-		color: #fff;
+		border-bottom: 1px solid #000;
 
 		.mob-menu {
 			display:block;	
@@ -94,17 +71,19 @@
 			top:20px;
 			right: 20px;
 			padding: 10px;
-			
-			i {
-		  // 		width: 28px;
-				// height: 25px;
-			  	// background-position: -165px -4px;
-			}
+			font-size: 30px;
+		}
 
-			&.active i {
-				// width: 24px;
-				// height: 23px;
-		  		// background-position: -15px -102px;
+		.glyphicon-remove {
+			display: none;
+		}
+
+		.active {
+			.glyphicon-menu-hamburger {
+				display: none;
+			}
+			.glyphicon-remove {
+				display: inline-block;
 			}
 		}
 
@@ -144,13 +123,13 @@
 		{
 			border-bottom: 0;
 
-			.social 
+/*			.social 
 			{
 				li:not(.vt-logo)
 				{
 					display:none;
 				}
-			}
+			}*/
 		}
 
 		.menu-main-nav-container 

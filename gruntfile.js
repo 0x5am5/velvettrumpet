@@ -1,3 +1,5 @@
+// require('load-grunt-tasks')(grunt);
+
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -75,7 +77,7 @@ module.exports = function(grunt) {
         files: ['components/sass/*'],
         tasks: ['sass:dev', 'autoprefixer']
       }
-    },
+    }
   });
 
   grunt.registerTask('default', ['copy','sass:dev', 'autoprefixer', 'watch']);

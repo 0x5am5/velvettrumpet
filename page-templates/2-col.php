@@ -9,7 +9,7 @@ $parents = get_post_ancestors( $post->ID );
 <?php get_header(); ?>
 
 <div class="wrapper">
-  <div class="content">
+  <div class="container">
 
   <?php while ( have_posts() ) : the_post(); ?>
 

@@ -7,25 +7,14 @@
 		padding: 0 200px;
 	}
 
-	.col {
-		text-align: justify;
-
-		h2 
-		{
-			text-align: left;
-			font-size: 38px;
-		}
+	h2 
+	{
+		text-align: left;
+		font-size: 38px;
 	}
 
 	li {
 		padding-left: 15px;
-		position: relative;
-
-		&:before
-		{
-			position: absolute;
-			left: 0;
-		}
 	}
 }
 

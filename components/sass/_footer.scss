@@ -1,13 +1,8 @@
 .footer {
 	background: #fff;
 
-	a:link,
-	a:visited {
-		text-shadow: none;
-		text-decoration: none;
-	}
 	.inner {
-		padding: 10px 20px;
+		padding: 10px 0;
 		text-align: center;
 		border-top: 1px solid #000;
 		position: relative;
@@ -39,49 +34,32 @@
 		box-shadow: none;
 	}
 
-	.twitter {
+	.twitter-link
+	{
+		display: block;
+	}
+	
+	.twitter-ticker
+	{
+		padding: 10px 0;
+	}
+/*	.twitter {
 		width: 35px;
 		height: 35px;
 		vertical-align: top;
 		margin-top: -5px;
 		background-position: -80px 0px;
-	}
+	}*/
 
-	.twitter:hover { background-position: -120px 0px }
+	/*.twitter:hover { background-position: -120px 0px }*/
 	
-	.tweets {
-		padding: 20px 0;
-		position: relative;
-
-		.slideshow
-		{
-			margin: 10px 0;			
-		}
-	}
 
 	.other img {
 		width:100%;
 	}
 
-
-	.copywrite { 
-		margin-top: 20px; 
-		position: relative;
-	}
-
-	.other {
-		display: block;
-		margin-top: 40px;
-		margin-left: auto;
-		margin-right: auto;
-		overflow: hidden;
-		text-align:left;
-		max-width: 960px;
-	}
-
 	.menu {
 		margin: 0 auto;
-		width: 50%;
 
 		li {
 			width: 50%;
