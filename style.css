@@ -8269,6 +8269,11 @@ table td  { padding:10px 0; }*/
   margin-bottom: 10px;
 }
 
+.production a {
+  position: relative;
+  display: block;
+}
+
 /*.production-list 
 {
 	padding-left: 0;
@@ -8313,8 +8318,100 @@ table td  { padding:10px 0; }*/
 	display:block;
 }
 */
+.woocommerce table.shop_table, .woocommerce-page table.shop_table {
+  padding: 5px;
+}
+
+.woocommerce-message {
+  margin-bottom: 20px;
+}
+
+form input,
+form textarea,
+.woocommerce form .form-row input.input-text,
+.woocommerce form .form-row textarea,
+.woocommerce-page form .form-row input.input-text,
+.woocommerce-page form .form-row textarea,
+.woocommerce form .col-1 .form-row input.input-text,
+.woocommerce form .col-1 .form-row textarea,
+.woocommerce-page form .col-1 .form-row input.input-text,
+.woocommerce-page form .col-1 .form-row textarea {
+  padding: 10px;
+  background-color: #eee;
+}
+
+.woocommerce input.button,
+.woocommerce a.button.alt,
+.woocommerce a.button.alt:hover,
+.woocommerce a.button.alt:focus,
+.woocommerce a.button,
+.woocommerce input.button.alt,
+.woocommerce input.button.alt:hover,
+.woocommerce input.button.alt:focus {
+  background-color: #631a1a;
+  color: #fff;
+}
+.woocommerce .cart_totals {
+  text-align: right;
+}
+
+.woocommerce table.cart td.actions .coupon #coupon_code,
+.woocommerce table.cart td.actions .coupon input {
+  width: 48%;
+  margin: 0;
+}
+
+.woocommerce #payment .payment_method_paypal .about_paypal, .woocommerce-page #payment .payment_method_paypal .about_paypal {
+  float: none;
+  display: block;
+}
+
+form input[type="submit"] {
+  margin: 5px 0;
+}
+
+.woocommerce .form-row-first {
+  width: 100%;
+}
+
+.woocommerce .col2-set .col-1,
+.woocommerce .col2-set .col-2,
+.woocommerce-page .col2-set .col-1,
+.woocommerce-page .col2-set .col-2 {
+  float: none;
+  width: 100%;
+}
+
+.shipping_address {
+  display: none;
+}
+
+.product .product_title {
+  font-family: "cochin, 'times', 'serif'";
+  font-size: 41px;
+}
+.product .cart,
+.product .comment-form {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.product .quantity {
+  margin-bottom: 10px;
+}
+.product .tabs {
+  display: none;
+}
+
+.product-type-simple img {
+  max-width: 100%;
+  height: 100%;
+}
+
+.payment_methods img {
+  width: auto;
+}
+
 /*@import 'production';*/
-/*@import 'woocommerce';*/
 /*@import 'media-vt';*/
 /*@import 'slideshow';*/
 .additional-info.mobile {

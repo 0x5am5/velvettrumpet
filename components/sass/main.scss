@@ -7,31 +7,31 @@ Author URI: http://www.samgregorydigital.co.uk
 */
 
 // Settings
-@import 'variables';
+@import 'components/variables';
 
 // dependencies
 /*! Bootstrap */
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 
 // Generic
-@import 'normalise';
-@import 'bootstrap-overrides';
+@import 'components/normalise';
+@import 'components/bootstrap-overrides';
 
 // Base
-@import 'fonts';
-@import 'base';
+@import 'components/fonts';
+@import 'components/base';
 
 // Objects
-@import 'icons';
+@import 'components/icons';
 
 // Components
-@import 'header';
-@import 'footer';
-@import 'about';
-@import 'soggybrass';
-@import 'productions';
+@import 'components/header';
+@import 'components/footer';
+@import 'components/about';
+@import 'components/soggybrass';
+@import 'components/productions';
+@import 'components/woocommerce';
 /*@import 'production';*/
-/*@import 'woocommerce';*/
 /*@import 'media-vt';*/
 /*@import 'slideshow';*/
 
