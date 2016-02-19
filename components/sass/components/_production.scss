@@ -1,0 +1,100 @@
+/*// right col
+.production
+{
+	.cast {
+		font-size: 16px;
+	}
+}
+
+// left col
+.poster-large {
+	padding: 10px;
+	position: relative;
+	
+	img 
+	{
+		width:100%;
+		max-width: 350px;
+		max-height: 495px;
+	}
+
+	.booking {
+		top:9px;
+		right: 8px;
+	}
+}
+
+.performance-dates li {
+	position:relative;
+	display: inline-block;
+}
+
+.reviews {
+	padding-top: 40px;
+}
+
+.reviews .border {
+	border-top: 1px solid #fff;
+	margin: 0 20%;
+}
+
+.reviews div { padding: 0 0 10px 0; }
+
+.reviews blockquote {
+	display: inline;
+	margin: 0;
+}
+
+.reviews > div:first-child .border {
+	display:none;
+}
+
+.post-nav {
+	margin-top: 10px;
+	height: 50px;
+	
+	.col {
+		text-align: right;
+
+		&:first-child {
+			text-align: left;
+		}
+	}
+
+	a,
+	span {
+		padding: 10px;
+		background: #eee;
+		display: inline-block;
+		border-radius: 3px;
+		border: 1px solid #e1e1e1;
+		text-decoration: none;
+		width: 95px;
+		text-align: center;
+	}
+
+	span {
+		color: #aaa;
+		border: none;
+		background: #f1f1f1;
+	}
+}
+
+@media only screen and (max-width: $breakpointTablet) {
+	.poster-large
+	{
+		max-width: 350px;
+		max-height: 495px;
+		margin: {
+			left: auto;
+			right: auto;
+		}
+	}
+
+	.post-nav {
+	
+		.col {
+			width: 50%;			
+		}
+	}
+}*/
