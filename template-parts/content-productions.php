@@ -1,4 +1,4 @@
-<div class="grid">
+<div class="row">
 
 <?php $args = array(
 	'sort_order'   => 'desc',
@@ -22,12 +22,14 @@ foreach(get_pages($args) as $value) :
 
 	?>
 
-		<div class="col w-33 production">
-			<a href="<?php echo $guid; ?>">				
-				<?php if($booking) : echo '<span class="icon booking"></span>'; endif; ?>
-				<span class="shade"></span>
-				<img src="<?php echo $production['url']; ?>" alt="<?php echo get_the_title($id).' - '.get_field('production_year', $id) ?>">							
-			</a>
+		<div class="col-md-4">
+			<div class="production">
+				<a href="<?php echo $guid; ?>">				
+					<?php if($booking) : echo '<span class="icon booking"></span>'; endif; ?>
+					<span class="shade"></span>
+					<img src="<?php echo $production['url']; ?>" alt="<?php echo get_the_title($id).' - '.get_field('production_year', $id) ?>">							
+				</a>				
+			</div>
 		</div>						
 		
 	<?php endif;

@@ -51,7 +51,7 @@
 								<li><a href="https://www.instagram.com/velvettrumpet" target="_blank" title="Follow us on Instagram"><span class="access">Go to our Instagram page</span><span class="icon instagram"></span></a></li>
 								<li><a href="mailto:info@velvettrumpet.co.uk" title="Drop us an email"><span class="access">Email us at info@velvettrumpet.co.uk</span><span class="icon mail"></span></a></li>				
 							</ul>
-							<div class="tagline">South London-based purveyors of original theatrical humour since 2012.</div>
+							<div class="tagline"><?php get_bloginfo('tagline'); ?></div>
 						</div>		
 					</nav>					
 				</div>

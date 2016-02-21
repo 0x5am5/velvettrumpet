@@ -15,7 +15,7 @@ $parents = get_post_ancestors( $post->ID );
 
     <?php $page_title = get_the_title($ID); ?>
 
-    <h1<?php if(get_field('hide_header')) :  echo ' class="access"';  endif; ?>><?php echo get_the_title($ID); ?></h1>
+    <h1<?php if(get_field('hide_header')) :  echo ' class="sr-only"';  endif; ?>><?php echo get_the_title($ID); ?></h1>
 
     <?php if ($_GET['add-to-cart']) : ?>
       <div class="woocommerce">
@@ -26,8 +26,8 @@ $parents = get_post_ancestors( $post->ID );
       </div>
     <?php endif; ?>
       
-    <div class="grid<?php if ($page_title == 'Soggy Brass') : echo ' soggy-brass'; endif; ?>">
-      <div class="col w-50<?php if ($page_title == 'Soggy Brass') echo ' left-col'; ?>">
+    <div class="row<?php if ($page_title == 'Soggy Brass') : echo ' soggy-brass'; endif; ?>">
+      <div class="col-sm-6 <?php if ($page_title == 'Soggy Brass') echo ' left-col'; ?>">
         <div class="pad">
         <?php if (get_field('poster_image')) : ?>
           <div class="poster-large">
@@ -39,7 +39,7 @@ $parents = get_post_ancestors( $post->ID );
         <?php endif; ?>
         <div class="additional-info">
         <?php if (get_field('performance_dates')) : ?>
-          <h2 class="access">Dates of Performance</h2>
+          <h2 class="sr-only">Dates of Performance</h2>
           <ol class="bullet-list">
             <?php
               while( has_sub_field('performance_dates') ) { 
@@ -76,7 +76,7 @@ $parents = get_post_ancestors( $post->ID );
           
         </div>
       </div>
-      <div class="col w-50<?php if (apply_filters("the_title", get_the_title(end($parents))) === 'Productions') echo ' production'; if ($page_title == 'Soggy Brass') echo ' right-col'; ?>">
+      <div class="col-sm-6<?php if (apply_filters("the_title", get_the_title(end($parents))) === 'Productions') echo ' production'; if ($page_title == 'Soggy Brass') echo ' right-col'; ?>">
         <?php if ($page_title != 'Soggy Brass') { ?>
           <div class="h2"><?php echo $page_title; ?></div>
         <?php } ?>
@@ -84,7 +84,7 @@ $parents = get_post_ancestors( $post->ID );
           <em class="tagline">'<?php echo get_field('tagline'); ?>'</em>
         <?php endif; ?>
         <?php if ($page_title != 'Soggy Brass') { ?>
-          <h2 class="access">Synopsis</h2>        
+          <h2 class="sr-only">Synopsis</h2>        
         <?php } ?>
         <?php echo the_content(); ?>
         <?php if (get_field('cast')) : ?>
@@ -117,7 +117,7 @@ $parents = get_post_ancestors( $post->ID );
 
       <div class="additional-info mobile">
       <?php if (get_field('performance_dates')) { ?>
-        <h2 class="access">Dates of Performance</h2>
+        <h2 class="sr-only">Dates of Performance</h2>
         <ol class="bullet-list">
         <?php
           while( has_sub_field('performance_dates') ) { 
@@ -134,7 +134,7 @@ $parents = get_post_ancestors( $post->ID );
       </div>
 
       <?php if (get_field('reviews')) : ?>
-        <h2 class="access">Reviews</h2>
+        <h2 class="sr-only">Reviews</h2>
         <div class="reviews">
         <?php
            while( has_sub_field('reviews') ): 

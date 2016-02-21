@@ -3,16 +3,15 @@ include 'twitter.php';
 	$tweets = $twitter->get('https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=velvettrumpet&count=5');
 	$GLOBALS['$mentions'] = $twitter->get('https://api.twitter.com/1.1/search/tweets.json?q=joyVT&count=10');
 
-	$curl = curl_init();
-	curl_setopt_array($curl, array(
-    		CURLOPT_RETURNTRANSFER => 1,
-    		CURLOPT_URL => 'https://api.instagram.com/v1/users/237397623/media/recent/?access_token=237397623.f60051c.7a28167c2a974f7785e75e1c4ae3232b&count=10'
-	));
-	$result = curl_exec($curl);
-	curl_close($curl);
-	$feed = json_decode($result);
+	// $curl = curl_init();
+	// curl_setopt_array($curl, array(
+ //    		CURLOPT_RETURNTRANSFER => 1,
+ //    		CURLOPT_URL => 'https://api.instagram.com/v1/users/237397623/media/recent/?access_token=237397623.f60051c.7a28167c2a974f7785e75e1c4ae3232b&count=10'
+	// ));
+	// $result = curl_exec($curl);
+	// curl_close($curl);
+	// $feed = json_decode($result);
 ?>
-
 		<footer>
 			<div class="footer">
 				<div class="inner">
