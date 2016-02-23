@@ -9,7 +9,7 @@ $parents = get_post_ancestors( $post->ID );
 <?php get_header(); ?>
 
 <div class="wrapper">
-  	<div class="content">
+  	<div class="container">
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
@@ -44,19 +44,16 @@ $parents = get_post_ancestors( $post->ID );
 				<div class="pad">
 					<?php the_content(); ?>					
 					<?php if (get_the_title($ID) === 'Soggy Brass') : ?>
-						<ul style="display: none;">
+						<ul>
 						<?php
 
-							$args = array('category' => 'soggy brass', 'orderby' => 'date');
+							$args = array('category_name' => 'soggy brass', 'orderby' => 'date');
 
-							foreach ( get_posts( $args ) as $post ) : setup_postdata( $post ); ?>
-								<?php $year = the_date( 'Y'); ?>
-								<?php $prevYear; ?>
-								<?php if ($year > $prevYear) echo '</ul>'.$year.'<ul>'; ?>
-									<li>
+							foreach ( get_posts( $args ) as $post ) : setup_postdata( $post ); ?>																
+									<li class="col-sm-4">
 										<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 									</li>
-								<?php $prevYear = $year; ?>
+								
 							<?php endforeach; 
 							wp_reset_postdata();?>
 						</ul>
