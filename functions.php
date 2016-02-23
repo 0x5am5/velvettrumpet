@@ -17,8 +17,9 @@ function arphabet_widgets_init() {
 add_action( 'widgets_init', 'arphabet_widgets_init' );
 
 function load_scripts() {
-	    wp_enqueue_script('themeJs', get_template_directory_uri(). '/js/main.js', array('jquery'), '1.0.0', true);
-		wp_enqueue_style( 'themeCss', get_stylesheet_uri());
+	wp_enqueue_script('themeJs', get_template_directory_uri(). '/js/main.js', array('jquery'), '1.0.0', true);
+	wp_enqueue_script('bootstrap', get_template_directory_uri(). '/js/bootstrap.js', array('jquery'), '1.0.0', true);
+	wp_enqueue_style( 'themeCss', get_stylesheet_uri());
 }
 add_action( 'wp_enqueue_scripts', 'load_scripts' );
 

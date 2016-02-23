@@ -1,86 +1,48 @@
 /*!
-Theme Name: velvettrumpetfifteen
+Theme Name: velvettrumpetsixteen
 Description: Velvet Trumpet Theme
-Version: 2
+Version: 3
 Author: Sam Gregory
 Author URI: http://www.samgregorydigital.co.uk
 */
 
+// Settings
+@import 'components/variables';
 
-@import 'variables';
+// dependencies
 /*! Bootstrap */
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 
-@import 'fonts';
-@import 'global';
-@import 'grid';
-@import 'base';
-@import 'header';
-@import 'footer';
-@import 'woocommerce';
-@import 'media-vt';
-@import 'about';
-@import 'slideshow';
-@import 'productions';
-@import 'soggybrass';
-@import 'production';
+// Generic
+@import 'components/normalise';
+@import 'components/bootstrap-overrides';
+
+// Base
+@import 'components/fonts';
+@import 'components/base';
+
+// Objects
+@import 'components/icons';
+
+// Components
+@import 'components/header';
+@import 'components/footer';
+@import 'components/about';
+@import 'components/soggybrass';
+@import 'components/productions';
+@import 'components/woocommerce';
+/*@import 'production';*/
+/*@import 'media-vt';*/
+/*@import 'slideshow';*/
 
 .additional-info.mobile { display:none; }
 
-
-
-.facebook {
-	background-position: -240px 0;
-}
-.facebook:hover,
-.social a:focus .facebook {
-	background-position: -280px 0;
-}
-
-.instagram {
-	background-position: 0 0;
-}
-.instagram:hover,
-.social a:focus .youtube {
-	background-position: -40px 0;
-}
-
-.twitter {
-	background-position: -80px 0;
-}
-.twitter:hover,
-.social a:focus .twitter {
-	background-position: -120px 0;
-}
-.booking {
-	background-position: -510px -278px;
-	width: 130px;
-	height: 129px;
-}
 
 .button--buy
 {
 	font-size: 18px;
 	font-weight: 700;
 }
-.mail {
-	background-position: -160px 0;
-}
-.mail:hover,
-.social a:focus .mail {
-	background-position: -200px 0;
-}
-
-.show-hide {
-	background-position: -81px -35px;
-	width: 51px;
-	height: 51px;
-}
-
-// .home-page .wrapper,
-// .contact-page .wrapper {
-// 	min-height: 800px
-// }
 
 .wrapper {
 	background: #fff;
@@ -101,11 +63,6 @@ font-size: 83px;
 
 .home-page .quotes {
 	margin-top: 20px;
-}
-
-.mission-statement {
-	font-size: 20px;
-	margin-bottom: 40px;
 }
 
 .other-info { margin-top: 20px; }
@@ -178,32 +135,3 @@ blockquote p {
 width:100%;
 }
 .performance-images .col { padding:10px }
-
-
-@media only screen and (-webkit-min-device-pixel-ratio: 2), 
-only screen and (min-device-pixel-ratio: 2) {
-
-	.icon {
-		background-size: 320px 240px; 		
-	}
-	.footer .tweets:before { 
-		background-size: 320px 240px;
-		background-position: 0 -80px; 
-	}
-
-	.show-hide { background-position: 0 -18px; }
-	.twitter { background-position: -95px -104px;  }
-	.twitter:hover { background-position: -60px -104px; }
-	.footer .twitter { background-position: -95px -104px; }
-	.footer .twitter:hover { background-position: -60px -104px; }
-	.facebook { background-position: -130px -33px; }
-	.facebook:hover { background-position: -131px -68px; }
-	.mail { background-position: -95px -69px; }
-	.mail:hover { background-position: -59px -69px; }
-	.instagram { background-position: -95px -33px; }
-	.instagram:hover { background-position: -60px -33px; }
-	
-	.booking { background-position: -192px 0px; }
-	.mob-menu i { background-position: -163px -4px; }
-	.mob-menu.active i { background-position: -14px -102px; }
-}

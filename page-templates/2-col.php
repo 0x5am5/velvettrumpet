@@ -9,7 +9,7 @@ $parents = get_post_ancestors( $post->ID );
 <?php get_header(); ?>
 
 <div class="wrapper">
-  <div class="content">
+  <div class="container">
 
   <?php while ( have_posts() ) : the_post(); ?>
 
@@ -27,7 +27,7 @@ $parents = get_post_ancestors( $post->ID );
     <?php endif; ?>
       
     <div class="row<?php if ($page_title == 'Soggy Brass') : echo ' soggy-brass'; endif; ?>">
-      <div class="col-sm-6 <?php if ($page_title == 'Soggy Brass') echo ' left-col'; ?>">
+      <div class="col-md-6<?php if ($page_title == 'Soggy Brass') echo ' left-col'; ?>">
         <div class="pad">
         <?php if (get_field('poster_image')) : ?>
           <div class="poster-large">

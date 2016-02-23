@@ -1,3 +1,5 @@
+// require('load-grunt-tasks')(grunt);
+
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -11,8 +13,13 @@ module.exports = function(grunt) {
     uglify: {
       my_target: {
         files: {
-          'js/main.js': 'components/js/main.js'
+          'js/main.js': ['components/js/main.js']
         }
+      },
+      bootstrap: {
+        files: {
+          'js/bootstrap.js': ['node_modules/bootstrap-sass/assets/javascripts/bootstrap.js']
+        }        
       }
     },
 
@@ -39,8 +46,12 @@ module.exports = function(grunt) {
 
     copy: {
       files: {
-        src: 'components/js/*.js',           // copy all files and subfolders
+        src: ['components/js/*.js'],           // copy all files and subfolders
         dest: 'js/main.js',    // destination folder
+      },
+      bootstrap: {
+        src: 'node_modules/bootstrap-sass/assets/javascripts/bootstrap.js', 
+        dest: 'js/bootstrap.js'
       }
     },
 
@@ -66,9 +77,9 @@ module.exports = function(grunt) {
         files: ['components/sass/*'],
         tasks: ['sass:dev', 'autoprefixer']
       }
-    },
+    }
   });
 
-  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('default', ['copy','sass:dev', 'autoprefixer', 'watch']);
   grunt.registerTask('build', ['sass:build', 'autoprefixer', 'uglify' ])
 }

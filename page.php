@@ -11,7 +11,7 @@
 
 		<?php } else { ?>
 
-			<h1 class="access">Velvet Trumpet</h1>
+			<h1 class="sr-only">Velvet Trumpet</h1>
 
 			<?php get_template_part( 'template-parts/content', 'slider' );
 
