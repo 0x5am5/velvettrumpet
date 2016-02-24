@@ -17,11 +17,14 @@
 
 		}
 
-		if(get_field('mission_statement')) :
+		if(get_field('mission_statement')) : ?>
 
-			get_template_part( 'template-parts/content', 'mission-statement' );
+			<h2>Mission Statement</h2>
+			<div class="mission-statement">
+				<?php the_field('mission_statement'); ?>
+			</div>  
 
-		endif;
+		<?php endif;
 
 		if(get_field('staff_member')) :
 			

@@ -142,4 +142,14 @@ function wpse_73006_submenu_order( $menu_ord )
     endif;
 }
 add_filter( 'custom_menu_order', 'wpse_73006_submenu_order' );
+/**
+ * Editing 'Featured image' label
+ *
+*/
+add_action('do_meta_boxes', 'change_image_box');
+function change_image_box()
+{
+    remove_meta_box( 'postimagediv', 'post', 'side' );
+    add_meta_box('postimagediv', __('Poster image (350x495)'), 'post_thumbnail_meta_box', 'post', 'side', 'high');
+}
 ?>

@@ -6,14 +6,12 @@
 		'post_type' => 'page',
 		'post_status' => 'publish'
 	); 
+	$pages = array();
 ?>
 
 <nav>
 	<div class="post-nav">
 		<?php 
-
-			$pages = array();
-
 			foreach (get_pages($args) as $page) {		
 
 				$pages[] += $page->ID;
@@ -29,15 +27,15 @@
 			$nextID = $pages[$current+1];
 		?>
 
-		<div class="grid">
-			<div class="col w-50">
+		<div class="row">
+			<div class="col-sm-6">
 				<?php if (!empty($nextID)) { ?>
 					<a href="<?php echo get_permalink($nextID); ?>" title="<?php echo get_the_title($nextID); ?>">« Next</a>
 				<?php } else { ?>
 					<span>« Next</span>
 				<?php } ?>
 			</div>
-			<div class="col w-50">
+			<div class="col-sm-6">
 				<?php if (!empty($prevID)) { ?>			
 					<a href="<?php echo get_permalink($prevID); ?>" title="<?php echo get_the_title($prevID); ?>">Previous »</a>
 				<?php } else { ?>
