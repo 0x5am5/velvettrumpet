@@ -137,10 +137,10 @@ set_query_var( 'parents', $parents );
 $args = array(
   'sort_order' => 'asc',
   'sort_column' => 'post_date',
-  'child_of' => $parents[0],
-  'post_type' => 'page',
+  'post_type' => 'post',
   'post_status' => 'publish'
   ); 
+
 get_template_part( 'template-parts/content', 'post-nav'); 
 ?>
 
