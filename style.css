@@ -6,8 +6,6 @@ Version: 3
 Author: Sam Gregory
 Author URI: http://www.samgregorydigital.co.uk
 */
-/*$headings-font-family: $title-font;*/
-/*$icon-font-path: 'node_modules/bootstrap-sass/assets/fonts/bootstrap/';*/
 /*! Bootstrap */
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
@@ -320,8 +318,8 @@ th {
 }
 @font-face {
   font-family: 'Glyphicons Halflings';
-  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot");
-  src: url("../fonts/bootstrap/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/bootstrap/glyphicons-halflings-regular.woff2") format("woff2"), url("../fonts/bootstrap/glyphicons-halflings-regular.woff") format("woff"), url("../fonts/bootstrap/glyphicons-halflings-regular.ttf") format("truetype"), url("../fonts/bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
+  src: url("css/fonts/glyphicons-halflings-regular.eot");
+  src: url("css/fonts/glyphicons-halflings-regular.eot?#iefix") format("embedded-opentype"), url("css/fonts/glyphicons-halflings-regular.woff2") format("woff2"), url("css/fonts/glyphicons-halflings-regular.woff") format("woff"), url("css/fonts/glyphicons-halflings-regular.ttf") format("truetype"), url("css/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular") format("svg");
 }
 .glyphicon {
   position: relative;
@@ -1959,7 +1957,7 @@ pre code {
 }
 @media (min-width: 1200px) {
   .container {
-    width: 1170px;
+    width: 920px;
   }
 }
 
@@ -4025,7 +4023,7 @@ tbody.collapse.in {
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  right: 0;
+  left: 0;
   z-index: 1000;
   display: none;
   float: left;
@@ -7678,6 +7676,18 @@ th {
   color: #631A1A;
 }
 
+.carousel-control.left {
+  background-image: none;
+}
+.carousel-control.right {
+  background-image: none;
+}
+
+.home-page .carousel {
+  width: 860px;
+  margin: 0 auto;
+}
+
 @font-face {
   font-family: "rabbit";
   src: url("css/fonts/rabbit_on_the_moon-webfont.eot");
@@ -7879,6 +7889,10 @@ table td  { padding:10px 0; }*/
 
   .home-page .quotes {
     margin-top: 0;
+  }
+
+  .wrapper {
+    padding-top: 100px;
   }
 }
 .icon {
@@ -8137,6 +8151,11 @@ table td  { padding:10px 0; }*/
   .header #menu-main-nav li {
     display: block;
     margin: 0;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .header {
+    z-index: 10;
   }
 }
 .footer {

@@ -52,6 +52,13 @@ module.exports = function(grunt) {
       bootstrap: {
         src: 'node_modules/bootstrap-sass/assets/javascripts/bootstrap.js', 
         dest: 'js/bootstrap.js'
+      },
+      glyphicons: {
+        expand: true,
+        src: 'node_modules/bootstrap-sass/assets/fonts/bootstrap/*',
+        dest: 'css/fonts/',
+        filter: 'isFile',
+        flatten: true
       }
     },
 
@@ -74,7 +81,7 @@ module.exports = function(grunt) {
         tasks: ['copy']        
       },
       css : {
-        files: ['components/sass/*'],
+        files: ['components/sass/*/**'],
         tasks: ['sass:dev', 'autoprefixer']
       }
     }

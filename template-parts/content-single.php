@@ -12,7 +12,7 @@
 <?php endif; ?>
 
 <div class="row<?php if ($page_title == 'Soggy Brass') : echo ' soggy-brass'; endif; ?>">
-  <div class="col-md-6<?php if ($page_title == 'Soggy Brass') echo ' left-col'; ?>">
+  <div class="col-sm-6">
       <?php 
         if (has_post_thumbnail() || get_field('poster_image')) : ?>
         <div class="poster-large">
@@ -61,12 +61,13 @@
     <?php endif; ?>
   </div>
 </div>
-<div class="col-sm-6<?php if (apply_filters("the_title", get_the_title(end($parents))) === 'Productions') echo ' production'; if ($page_title == 'Soggy Brass') echo ' right-col'; ?>">
+<div class="col-sm-6">
   <?php if ($page_title != 'Soggy Brass') { ?>
   <div class="h2"><?php echo $page_title; ?></div>
   <?php } ?>
   <?php if (get_field('tagline')) : ?>
-  <em class="tagline">'<?php echo get_field('tagline'); ?>'</em>
+  <?php $quote = wp_get_post_categories() === 'soggy brass' ? "/'" : "" ?>
+  <em class="tagline">'<?php echo $quote.get_field('tagline').$quote; ?>'</em>
 <?php endif; ?>
 <?php if ($page_title != 'Soggy Brass') { ?>
 <h2 class="sr-only">Synopsis</h2>        

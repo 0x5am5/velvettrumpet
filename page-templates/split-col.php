@@ -44,13 +44,16 @@ $parents = get_post_ancestors( $post->ID );
 							<?php
 
 								$args = array('category_name' => 'soggy brass', 'orderby' => 'date');
-
+								$index = 1;
 								foreach (get_posts($args) as $post) : setup_postdata( $post ); ?>
 									<?php //$year = the_date( 'Y'); ?>
 									<?php// $prevYear; ?>
 									<?php// if ($year > $prevYear) echo '</ul>'.$year.'<ul>'; ?>
 										<li class="col-xs-3">
-											<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+											<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+												<?php the_post_thumbnail('thumbnail'); ?>
+												<?php echo $index; $index++; ?>
+											</a>
 										</li>
 									<?php// $prevYear = $year; ?>
 								<?php endforeach; 
