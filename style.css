@@ -7869,11 +7869,6 @@ table td  { padding:10px 0; }*/
   margin: 0 auto;
 }
 
-.container {
-  text-align: center;
-  padding: 20px 0;
-}
-
 .booking {
   position: absolute;
   top: -2px;
@@ -8279,9 +8274,6 @@ table td  { padding:10px 0; }*/
 @media only screen and (max-width: 769px) {
   .soggybrass .soggy-info {
     padding: 0;
-  }
-  .soggybrass .soggy-image {
-    width: 100%;
   }
 }
 .production {

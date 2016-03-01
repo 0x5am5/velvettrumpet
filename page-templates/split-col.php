@@ -28,10 +28,10 @@ $parents = get_post_ancestors( $post->ID );
 			<?php endif; ?>
 
 			<div class="row">
-				<div class="col-xs-6 text-justify">
+				<div class="col-sm-6 text-justify">
 						<?php the_field('soggy_what'); ?>							
 				</div>
-				<div class="col-xs-6 text-justify">
+				<div class="col-sm-6 text-justify">
 						<?php the_field('soggy_how'); ?>												
 				</div>
 			</div>	
@@ -42,20 +42,14 @@ $parents = get_post_ancestors( $post->ID );
 						<div class="soggy-brass-archive">
 							<ul class="list-unstyled">
 							<?php
-
 								$args = array('category_name' => 'soggy brass', 'orderby' => 'date');
-								$index = 1;
 								foreach (get_posts($args) as $post) : setup_postdata( $post ); ?>
-									<?php //$year = the_date( 'Y'); ?>
-									<?php// $prevYear; ?>
-									<?php// if ($year > $prevYear) echo '</ul>'.$year.'<ul>'; ?>
-										<li class="col-xs-3">
-											<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-												<?php the_post_thumbnail('thumbnail'); ?>
-												<?php echo $index; $index++; ?>
-											</a>
-										</li>
-									<?php// $prevYear = $year; ?>
+									<li class="col-sm-3 text-center">
+										<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+											<?php the_post_thumbnail('thumbnail'); ?>
+											<?php the_title(); ?>
+										</a>
+									</li>
 								<?php endforeach; 
 								wp_reset_postdata();?>
 							</ul>							
