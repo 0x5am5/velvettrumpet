@@ -15,8 +15,6 @@ $parents = get_post_ancestors( $post->ID );
 
     <?php $page_title = get_the_title($ID); ?>
 
-    <h1<?php if(get_field('hide_header')) :  echo ' class="sr-only"';  endif; ?>><?php echo get_the_title($ID); ?></h1>
-
     <?php if ($_GET['add-to-cart']) : ?>
       <div class="woocommerce">
         <div class="woocommerce-message">
@@ -26,17 +24,20 @@ $parents = get_post_ancestors( $post->ID );
       </div>
     <?php endif; ?>
       
-    <div class="row<?php if ($page_title == 'Soggy Brass') : echo ' soggy-brass'; endif; ?>">
-      <div class="col-md-6<?php if ($page_title == 'Soggy Brass') echo ' left-col'; ?>">
-        <div class="pad">
-        <?php if (get_field('poster_image')) : ?>
-          <div class="poster-large">
-            <?php if(get_field('booking_now')) : ?>
-              <span class="icon booking"></span>
-            <?php endif; ?>
-            <img src="<?php echo get_field('poster_image')['url']; ?>" alt="<?php echo get_field('poster_image')['title']; ?>"/>
-          </div>
-        <?php endif; ?>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="visible-xs-block text-center">
+          <div class="h2"><?php echo $page_title; ?></div>
+          <em class="tagline"><?php the_field('tagline') ?></em>
+        </div>
+      <?php if (get_field('poster_image')) : ?>
+        <div class="poster-large">
+          <?php if(get_field('booking_now')) : ?>
+            <span class="icon booking"></span>
+          <?php endif; ?>
+          <img src="<?php echo get_field('poster_image')['url']; ?>" alt="<?php echo get_field('poster_image')['title']; ?>"/>
+        </div>
+      <?php endif; ?>
         <div class="additional-info">
         <?php if (get_field('performance_dates')) : ?>
           <h2 class="sr-only">Dates of Performance</h2>
@@ -72,57 +73,46 @@ $parents = get_post_ancestors( $post->ID );
               </p>
                 
             <?php endif; ?>
-          </div>
-          
-        </div>
+          </div>      
       </div>
       <div class="col-sm-6<?php if (apply_filters("the_title", get_the_title(end($parents))) === 'Productions') echo ' production'; if ($page_title == 'Soggy Brass') echo ' right-col'; ?>">
-        <?php if ($page_title != 'Soggy Brass') { ?>
-          <div class="h2"><?php echo $page_title; ?></div>
-        <?php } ?>
-        <?php if (get_field('tagline')) : ?>
-          <em class="tagline">'<?php echo get_field('tagline'); ?>'</em>
-        <?php endif; ?>
-        <?php if ($page_title != 'Soggy Brass') { ?>
-          <h2 class="sr-only">Synopsis</h2>        
-        <?php } ?>
-        <?php echo the_content(); ?>
-        <?php if (get_field('cast')) : ?>
-          <h2 class="cast">CAST</h2>
-          <ul class="main-cast">
-          <?php
-            while( has_sub_field('cast') ): 
-              echo '<li>'.get_sub_field('name').'</li>';
+        <div class="hidden-xs">
+          <h1 class="h2"><?php echo $page_title; ?></h1>
+          <em class="tagline"><?php the_field('tagline') ?></em>      
+        </div>
+        <h2 class="sr-only">Synopsis</h2>        
+        <?php the_content(); ?>
+        
+        <h2 class="cast">CAST</h2>
+        <ul class="main-cast">
+        <?php
+          while( has_sub_field('cast') ): 
+            echo '<li>'.get_sub_field('name').'</li>';
+          endwhile; 
+
+          if (get_field('additional_crew')) :
+            while( has_sub_field('additional_crew') ): 
+              echo '<li>'.get_sub_field('role').' '.get_sub_field('name').'</li>';
             endwhile; 
-          ?>
-          </ul>
-        <?php endif; ?>
-        <?php if (get_field('additional_crew')) : ?>
-          <ul>
-          <?php
-             while( has_sub_field('additional_crew') ): 
-               echo '<li>'.get_sub_field('role').' '.get_sub_field('name').'</li>';
-             endwhile; 
-          ?>
-          </ul>
-        <?php endif; ?>
+          endif;
+        ?>
+        </ul>
         <?php if (get_field('other_info')) { ?>
           <div class="other-info">
-          <?php echo get_field('other_info'); ?>
+          <?php the_field('other_info'); ?>
           </div>
         <?php } ?>
       
         </div>
       </div>
 
-      <div class="additional-info mobile">
-      <?php if (get_field('performance_dates')) { ?>
+      <div class="additional-info visible-xs-block">
         <h2 class="sr-only">Dates of Performance</h2>
         <ol class="bullet-list">
         <?php
-          while( has_sub_field('performance_dates') ) { 
+          while( has_sub_field('performance_dates') ) :
             echo '<li>'.get_sub_field('date').'</li>';
-          } 
+          endwhile; 
         ?>
         </ol>
       <?php } ?>
