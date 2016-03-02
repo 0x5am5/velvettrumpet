@@ -14,7 +14,7 @@ foreach(get_pages($args) as $value) :
 
 	$id = $value->ID;
 
-	if ( get_field('poster_image', $id) ) : 
+	if ( get_field('poster_image', $id) || has_post_thumbnail($id) ) : 
 
 		$production = get_field('poster_image', $id);
 		$booking = get_field('booking_now', $id);
@@ -26,7 +26,13 @@ foreach(get_pages($args) as $value) :
 				<a href="<?php echo $guid; ?>">				
 					<?php if($booking) : echo '<span class="icon booking"></span>'; endif; ?>
 					<span class="shade"></span>
-					<img src="<?php echo $production['url']; ?>" alt="<?php echo get_the_title($id).' - '.get_field('production_year', $id) ?>" class="img-responsive">							
+					<?php 
+						if (has_post_thumbnail($id)) : 
+							echo get_the_post_thumbnail($id);
+						elseif ($production) :
+					?>
+						<img src="<?php echo $production['url']; ?>" alt="<?php echo get_the_title($id).' - '.get_field('production_year', $id) ?>" class="img-responsive">							
+					<?php endif; ?>
 				</a>				
 			</div>
 		</div>						
