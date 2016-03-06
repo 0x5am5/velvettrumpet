@@ -142,6 +142,7 @@ function wpse_73006_submenu_order( $menu_ord )
     endif;
 }
 add_filter( 'custom_menu_order', 'wpse_73006_submenu_order' );
+
 /**
  * Editing 'Featured image' label
  *
@@ -152,4 +153,65 @@ function change_image_box()
     remove_meta_box( 'postimagediv', 'post', 'side' );
     add_meta_box('postimagediv', __('Poster image (350x495)'), 'post_thumbnail_meta_box', 'post', 'side', 'high');
 }
+
+/**
+ * Add 'Featured image' link
+ *
+*/
+function made_fi_link_box_cb() {
+	$values = get_post_custom( $post->ID );
+	$text = isset( $values['featured_image_link'] ) ? esc_attr( $values['featured_image_link'][0] ) : '';
+	
+	// We'll use this nonce field later on when saving.
+    wp_nonce_field( 'my_meta_box_nonce', 'meta_box_nonce' );
+
+	echo '<label><span class="screen-reader-text">Featured image link:</span>'; 
+    echo '<select name="featured_image_link">';
+		echo '<option value="">Select page</option>';
+		echo '<option value="">No link</option>';
+
+  		$pages = get_pages(); 
+  		foreach ( $pages as $page ) {
+  			$option = '<option value="' . get_permalink( $page->ID ) . '"'.selected( get_permalink( $page->ID ), $text).'>';
+			$option .= $page->post_title;
+			$option .= '</option>';
+			echo $option;
+		}
+
+		$products = new WP_Query(array('post_type' => 'product'));
+		while ( $products->have_posts() ) : $products->the_post();
+			$option = '<option value="' . get_permalink() . '"' . selected(get_permalink(), $text) . '>';
+			$option .= get_the_title();
+			$option .= '</option>';
+			echo $option;
+		endwhile;
+		wp_reset_query(); 
+	
+	echo '</select>';
+	echo '</label>';
+}
+
+function make_fi_link_box() {
+	add_meta_box( 'featured_link', 'Featured Image Link', 'made_fi_link_box_cb', 'page', 'side');
+}
+
+add_action( 'add_meta_boxes', 'make_fi_link_box' );
+
+function save_post_cb($post_id) {
+	// Bail if we're doing an auto save
+	if( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) return;
+	 
+	// if our nonce isn't there, or we can't verify it, bail
+	if( !isset( $_POST['meta_box_nonce'] ) || !wp_verify_nonce( $_POST['meta_box_nonce'], 'my_meta_box_nonce' ) ) return;
+	 
+	// if our current user can't edit this post, bail
+	if( !current_user_can( 'edit_post' ) ) return;
+
+	// Make sure your data is set before trying to save it
+	if( isset( $_POST['featured_image_link'] ) )
+		update_post_meta( $post_id, 'featured_image_link', $_POST['featured_image_link']);
+}
+
+add_action( 'save_post', 'save_post_cb' );
+
 ?>
