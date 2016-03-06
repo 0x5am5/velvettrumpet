@@ -7756,6 +7756,10 @@ th {
   margin: 0 auto;
 }
 
+.container {
+  padding-top: 25px;
+}
+
 @font-face {
   font-family: "rabbit";
   src: url("css/fonts/rabbit_on_the_moon-webfont.eot");

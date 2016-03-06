@@ -14,12 +14,12 @@ Author URI: http://www.samgregorydigital.co.uk
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 
 // Generic
-@import 'components/normalise';
+@import 'components/normalise'; // resets
 @import 'components/bootstrap-overrides';
 
 // Base
 @import 'components/fonts';
-@import 'components/base';
+@import 'components/base'; // no classes
 
 // Objects
 @import 'components/icons';

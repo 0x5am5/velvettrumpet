@@ -4048,7 +4048,7 @@ tbody.collapse.in {
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
+  right: 0;
   z-index: 1000;
   display: none;
   float: left;
@@ -7754,6 +7754,10 @@ th {
 .home-page .carousel {
   width: 860px;
   margin: 0 auto;
+}
+
+.container {
+  padding-top: 25px;
 }
 
 @font-face {
