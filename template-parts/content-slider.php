@@ -1,23 +1,26 @@
-<?php if( get_field('slider') ): ?>
-	<?php 
-		$i = 0;
-		$images;
-		
-		if (get_field_object('animate_slider')['value']) :		
-			$images = get_field('slider');
-			shuffle($images);
-		else :
-			$images = [get_field('slider')[0]];
-		endif; 
-	?>
-	<div style="display:none;">
-		<?php echo get_field_object('animate_slider')['value']; ?>
-		<?php var_dump($images); ?>
-	</div>
+<?php 
+if (has_post_thumbnail()) :
+	
+	$link = get_post_custom( $post->ID )['featured_image_link'][0];
+
+	if ( $link ) :
+    	echo '<a href="'.$link.'">';		
+	endif;
+
+	echo get_the_post_thumbnail();
+
+	if ( $link ) :
+    	echo '</a>';		
+	endif;
+
+elseif (get_field('slider')) :
+	$i = 0;
+	$images = get_field('slider');
+	shuffle($images);
+?>
 	<ul class="slideshow">
 		<?php foreach($images as $value) { ?>
 		<?php 
-	//  <li>
 			if ($i == 0) { 
 				echo '<li class="show">'; 
 			} else { 

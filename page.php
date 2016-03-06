@@ -5,17 +5,19 @@
 
 	<?php while ( have_posts() ) : the_post();
 
-		if (!is_front_page()) { ?>
+		if (!is_front_page()) : ?>
 
 			<h1<?php if(get_field('hide_header')) :  echo ' class="access"';  endif; ?>><?php echo get_the_title($ID); ?></h1>
 
-		<?php } else { ?>
+		<?php else : ?>
 
 			<h1 class="access">Velvet Trumpet</h1>
 
-			<?php get_template_part( 'template-parts/content', 'slider' );
+		<?php
 
-		}
+			get_template_part( 'template-parts/content', 'slider' ); 
+
+		endif;
 
 		if(get_field('mission_statement')) :
 
