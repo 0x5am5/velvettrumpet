@@ -5,7 +5,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-autoprefixer');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -30,7 +29,7 @@ module.exports = function(grunt) {
           sourcemap: 'none'
         },
         files: {
-          'compiled/style.css': 'components/sass/main.scss'
+          'style.css': 'components/sass/main.scss'
         }
       },
       build: {
@@ -62,15 +61,15 @@ module.exports = function(grunt) {
       }
     },
 
-    autoprefixer: {
+    postcss: {
       options: {
-        browsers: ['last 2 versions']
+        map: true,
+        processors: [
+          require('autoprefixer')({browsers: ['last 1 version']}),
+        ]
       },
-      multiple_files: {
-        expand: true,
-        flatten: true,
-        src: 'compiled/*.css',
-        dest: ''
+      dist: {
+        src: 'components/sass/*/**'
       }
     },
 
@@ -82,11 +81,11 @@ module.exports = function(grunt) {
       },
       css : {
         files: ['components/sass/*/**'],
-        tasks: ['sass:dev', 'autoprefixer']
+        tasks: ['sass:dev']
       }
     }
   });
 
-  grunt.registerTask('default', ['copy','sass:dev', 'autoprefixer', 'watch']);
-  grunt.registerTask('build', ['sass:build', 'autoprefixer', 'uglify' ])
+  grunt.registerTask('default', ['copy', 'sass:dev', 'watch']);
+  grunt.registerTask('build', ['sass:build', 'postcss', 'uglify' ])
 }
