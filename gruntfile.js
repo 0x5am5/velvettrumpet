@@ -5,7 +5,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-postcss');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -62,17 +61,17 @@ module.exports = function(grunt) {
       }
     },
 
-    postcss: {
-      options: {
-        map: true,
-        processors: [
-          require('autoprefixer')({browsers: ['last 1 version']}),
-        ]
-      },
-      dist: {
-        src: 'components/sass/*/**'
-      }
-    },
+    // postcss: {
+    //   options: {
+    //     map: true,
+    //     processors: [
+    //       require('autoprefixer')({browsers: ['last 1 version']}),
+    //     ]
+    //   },
+    //   dist: {
+    //     src: 'components/sass/*/**'
+    //   }
+    // },
 
     watch: {
       options: { livereload: true },
@@ -88,7 +87,7 @@ module.exports = function(grunt) {
   });
 
 
-  grunt.registerTask('default', ['copy','sass:dev', 'autoprefixer', 'watch']);
+  grunt.registerTask('default', ['copy','sass:dev', 'watch']);
   grunt.registerTask('build', ['sass:build', 'autoprefixer', 'uglify' ])
 
 }

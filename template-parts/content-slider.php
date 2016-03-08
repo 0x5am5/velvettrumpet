@@ -1,16 +1,11 @@
 <?php 
 if (has_post_thumbnail()) :
-	
-	$link = get_post_custom( $post->ID )['featured_image_link'][0];
-
-	if ( $link ) :
-    	echo '<a href="'.$link.'">';		
-	endif;
-
-	echo get_the_post_thumbnail();
-
-	if ( $link ) :
+	if (get_post_custom( $post->ID )['featured_image_link'][0]) :
+    	echo '<a href="'.get_post_custom( $post->ID )['featured_image_link'][0].'" class="featured-img">';		
+			the_post_thumbnail('full', array('class' => 'img-responsive'));
     	echo '</a>';		
+	else:
+			the_post_thumbnail('full', array('class' => 'img-responsive'));
 	endif;
 elseif( get_field('slider') ): ?>
 	<?php 
@@ -21,12 +16,11 @@ elseif( get_field('slider') ): ?>
 	?>
 	<div class="carousel slide" data-ride="carousel">
 		<ol class="carousel-indicators">
-			<?php foreach($images as $value) { ?>
-	    		<li data-target="#image-slider" data-slide-to="<?php echo $indicator ?>"></li>
-	    		<?php $indicator++; ?>
-			<?php } ?>
-		  </ol>
-		<?php endif; ?>
+		<?php foreach($images as $value) { ?>
+    		<li data-target="#image-slider" data-slide-to="<?php echo $indicator ?>"></li>
+    		<?php $indicator++; ?>
+		<?php } ?>
+	  </ol>
 		<div class="carousel-inner" role="listbox">		
 			<?php foreach($images as $value) {
 

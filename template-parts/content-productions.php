@@ -28,7 +28,7 @@ foreach(get_pages($args) as $value) :
 					<span class="shade"></span>
 					<?php 
 						if (has_post_thumbnail($id)) : 
-							echo get_the_post_thumbnail($id);
+							echo get_the_post_thumbnail($id, 'full', array('class'=>'img-responsive'));
 						elseif ($production) :
 					?>
 						<img src="<?php echo $production['url']; ?>" alt="<?php echo get_the_title($id).' - '.get_field('production_year', $id) ?>" class="img-responsive">							

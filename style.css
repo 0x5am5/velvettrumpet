@@ -4048,7 +4048,7 @@ tbody.collapse.in {
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  left: 0;
+  right: 0;
   z-index: 1000;
   display: none;
   float: left;
@@ -7751,15 +7751,22 @@ th {
   background-image: none;
 }
 
-.home-page .carousel {
-  width: 860px;
-  margin: 0 auto;
+.home-page .container .carousel {
+  max-width: 860px;
+  margin: 0 auto 25px auto;
 }
 
 .container {
   padding-top: 25px;
+  text-align: center;
 }
 
+@media only screen and (max-width: 769px) {
+  .btn {
+    display: block;
+    margin-bottom: 5px;
+  }
+}
 @font-face {
   font-family: "rabbit";
   src: url("css/fonts/rabbit_on_the_moon-webfont.eot");
@@ -8290,17 +8297,25 @@ table td  { padding:10px 0; }*/
 }
 
 @media only screen and (max-width: 769px) {
-  .footer .col {
-    margin-bottom: 20px;
+  .footer {
+    /*.col 
+    {
+    	margin-bottom: 20px;
+    }*/
+    		/*.other
+    		{
+    			li
+    			{
+    				margin-bottom: 10px;
+    
+    				a {
+    					padding:10px 0;
+    				}
+    			} 
+    		}*/
   }
   .footer .tweets {
     height: 120px;
-  }
-  .footer .other li {
-    margin-bottom: 10px;
-  }
-  .footer .other li a {
-    padding: 10px 0;
   }
   .footer .itc-logo {
     width: 100px;
@@ -8334,8 +8349,8 @@ table td  { padding:10px 0; }*/
   padding-left: 15px;
 }
 
-.soggy-image {
-  max-width: 100%;
+.soggy-brass-archive img {
+  margin: 0 auto 5px auto;
 }
 
 @media only screen and (max-width: 769px) {
@@ -8396,6 +8411,10 @@ table td  { padding:10px 0; }*/
 	display:block;
 }
 */
+.featured-img {
+  margin-bottom: 25px;
+}
+
 .woocommerce table.shop_table, .woocommerce-page table.shop_table {
   padding: 5px;
 }

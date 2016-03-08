@@ -17,7 +17,7 @@ $parents = get_post_ancestors( $post->ID );
 
 		<?php if( get_field('banner') ) :
 			$image = get_field('banner');
-			echo '<img src="'.$image['url'].'" class="soggy-image no-shadow" alt="Soggy Brass">';
+			echo '<img src="'.$image['url'].'" class="soggy-image no-shadow img-responsive" alt="Soggy Brass">';
 		endif; ?>
 
 		<div class="soggybrass">
@@ -40,13 +40,14 @@ $parents = get_post_ancestors( $post->ID );
 					<?php the_content(); ?>					
 					<?php if (get_the_title($ID) === 'Soggy Brass') : ?>
 						<div class="soggy-brass-archive">
+							<h2>The Soggy Brass archive</h2>
 							<ul class="list-unstyled">
 							<?php
 								$args = array('category_name' => 'soggy brass', 'orderby' => 'date');
 								foreach (get_posts($args) as $post) : setup_postdata( $post ); ?>
-									<li class="col-sm-3 text-center">
+									<li class="col-sm-3 col-xs-6 text-center">
 										<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-											<?php the_post_thumbnail('thumbnail'); ?>
+											<?php the_post_thumbnail('thumbnail', array('class'=>'img-responsive')); ?>
 											<?php the_title(); ?>
 										</a>
 									</li>
