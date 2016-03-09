@@ -1,18 +1,18 @@
 <?php 
-	$args = array(
-		'sort_order' => 'asc',
-		'sort_column' => 'post_date',
-		'child_of' => $parents[0],
-		'post_type' => 'page',
-		'post_status' => 'publish'
-	); 
+	// $args = array(
+	// 	'sort_order' => 'asc',
+	// 	'sort_column' => 'post_date',
+	// 	'child_of' => $parents[0],
+	// 	'post_type' => 'page',
+	// 	'post_status' => 'publish'
+	// ); 
 	$pages = array();
 ?>
 
 <nav>
 	<div class="post-nav">
 		<?php 
-			foreach (get_pages($args) as $page) {		
+			foreach (get_posts($args) as $page) {		
 
 				$pages[] += $page->ID;
 

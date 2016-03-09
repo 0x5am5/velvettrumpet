@@ -27,15 +27,14 @@
     <?php echo the_content(); ?>
   </div>
   <?php 
-    // set_query_var( 'parents', $parents );
-
     $args = array(
-      'sort_order' => 'asc',
-      'sort_column' => 'post_date',
-      'post_type' => 'post',
-      'post_status' => 'publish'
-      ); 
-
+     'sort_order' => 'asc',
+     'sort_column' => 'post_date',
+     'post_type' => 'post',
+     'post_status' => 'publish',
+     'category_name' => 'soggy brass'
+    ); 
+    set_query_var( 'args', $args );
     get_template_part( 'template-parts/content', 'post-nav'); 
   ?>
 </div>
