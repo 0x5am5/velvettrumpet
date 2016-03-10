@@ -84,13 +84,14 @@ $parents = get_post_ancestors( $post->ID );
         <?php the_content(); ?>
         
         <h2 class="cast">CAST</h2>
-        <ul class="main-cast">
+        <ul class="list-unstyled">
         <?php
           while( has_sub_field('cast') ): 
             echo '<li>'.get_sub_field('name').'</li>';
           endwhile; 
 
           if (get_field('additional_crew')) :
+            echo '<li class="divider"></li>';
             while( has_sub_field('additional_crew') ): 
               echo '<li>'.get_sub_field('role').' '.get_sub_field('name').'</li>';
             endwhile; 
@@ -115,7 +116,6 @@ $parents = get_post_ancestors( $post->ID );
           endwhile; 
         ?>
         </ol>
-      <?php } ?>
 
       <?php if (get_field('running_time')) { echo 'Running time | '.get_field('running_time').' minutes'; } ?>
 

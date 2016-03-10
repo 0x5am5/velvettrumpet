@@ -7,14 +7,14 @@ Author URI: http://www.samgregorydigital.co.uk
 */
 
 // Settings
-@import 'components/variables';
+@import 'variables';
 
 // dependencies
 /*! Bootstrap */
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap';
 
 // Generic
-@import 'components/normalise'; // resets
+@import 'normalise'; // resets
 @import 'components/bootstrap-overrides';
 
 // Base
@@ -22,7 +22,7 @@ Author URI: http://www.samgregorydigital.co.uk
 @import 'components/base'; // no classes
 
 // Objects
-@import 'components/icons';
+@import 'objects/icons';
 
 // Components
 @import 'components/header';
@@ -30,10 +30,10 @@ Author URI: http://www.samgregorydigital.co.uk
 @import 'components/about';
 @import 'components/soggybrass';
 @import 'components/productions';
+@import 'components/production';
 @import 'components/featured-img';
 @import 'components/woocommerce';
 @import 'components/post-nav';
-/*@import 'production';*/
 /*@import 'media-vt';*/
 /*@import 'slideshow';*/
 

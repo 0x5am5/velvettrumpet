@@ -2,7 +2,7 @@
 if (has_post_thumbnail()) :
 	if (get_post_custom( $post->ID )['featured_image_link'][0]) :
     	echo '<a href="'.get_post_custom( $post->ID )['featured_image_link'][0].'" class="featured-img">';		
-			the_post_thumbnail('full', array('class' => 'img-responsive'));
+			the_post_thumbnail('full', array('class' => 'img-responsive featured-img'));
     	echo '</a>';		
 	else:
 			the_post_thumbnail('full', array('class' => 'img-responsive'));
