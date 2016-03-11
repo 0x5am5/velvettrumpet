@@ -88,6 +88,6 @@ module.exports = function(grunt) {
 
 
   grunt.registerTask('default', ['copy','sass:dev', 'watch']);
-  grunt.registerTask('build', ['sass:build', 'autoprefixer', 'uglify' ])
+  grunt.registerTask('build', ['sass:build', 'uglify' ])
 
 }

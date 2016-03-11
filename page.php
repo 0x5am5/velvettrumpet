@@ -39,10 +39,8 @@
 		endif;
 			
 		echo '<div class="main-content">';
-		the_content();
+			the_content();
 		echo '</div>';
-
-
 	endwhile; ?>
 
 	</div>

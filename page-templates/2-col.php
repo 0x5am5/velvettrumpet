@@ -35,45 +35,45 @@ $parents = get_post_ancestors( $post->ID );
           <?php if(get_field('booking_now')) : ?>
             <span class="icon booking"></span>
           <?php endif; ?>
-          <img src="<?php echo get_field('poster_image')['url']; ?>" alt="<?php echo get_field('poster_image')['title']; ?>"/>
+          <img src="<?php echo get_field('poster_image')['url']; ?>" alt="<?php echo get_field('poster_image')['title']; ?>">
         </div>
       <?php endif; ?>
         <div class="additional-info">
-        <?php if (get_field('performance_dates')) : ?>
-          <h2 class="sr-only">Dates of Performance</h2>
-          <ol class="bullet-list">
-            <?php
-              while( has_sub_field('performance_dates') ) { 
-                echo '<li>'.get_sub_field('date').'</li>';
-              } 
-            ?>
-          </ol>
-        <?php endif; ?>
+          <?php if (get_field('performance_dates')) : ?>
+            <h2 class="sr-only">Dates of Performance</h2>
+            <ol class="bullet-list">
+              <?php
+                while( has_sub_field('performance_dates') ) :
+                  echo '<li>'.get_sub_field('date').'</li>';
+                endwhile;
+              ?>
+            </ol>
+          <?php endif; ?>
 
-        <?php if (get_field('running_time')) { echo '<p>Running time | '.get_field('running_time').' minutes</p>'; } ?>
+          <?php if (get_field('running_time')) echo '<p>Running time | '.get_field('running_time').' minutes</p>'; ?>
 
-        <?php if (get_field('next_soggy_brass')) { the_field('next_soggy_brass'); } ?>
-        
-        <?php if(get_field('add_to_cart')) : ?>
-                
+          <?php if (get_field('next_soggy_brass')) the_field('next_soggy_brass'); ?>
+          
+          <?php if(get_field('add_to_cart')) : ?>
+                  
             <?php
               $pageURL = $_SERVER["REQUEST_URI"];
-              // $pageURL = $_SERVER['HTTP_HOST'];
 
-              if(count($_GET)>0) {
+              if(count($_GET)>0) :
                 $pageURL .= '&add-to-cart=';
-              } else {
+              else :
                 $pageURL .= '?add-to-cart=';
-              }       
+              endif;
+
               $pageURL .= get_field('add_to_cart'); 
             ?>
-              
-              <p>
-                <a href="<?php echo $pageURL; ?>" title="Book now" class="button button--buy">Book now!</a>                
-              </p>
                 
-            <?php endif; ?>
-          </div>      
+            <p>
+              <a href="<?php echo $pageURL; ?>" title="Book now" class="button button--buy">Book now!</a>                
+            </p>
+                  
+          <?php endif; ?>
+        </div>      
       </div>
       <div class="col-sm-6<?php if (apply_filters("the_title", get_the_title(end($parents))) === 'Productions') echo ' production'; if ($page_title == 'Soggy Brass') echo ' right-col'; ?>">
         <div class="hidden-xs">
@@ -83,25 +83,28 @@ $parents = get_post_ancestors( $post->ID );
         <h2 class="sr-only">Synopsis</h2>        
         <?php the_content(); ?>
         
-        <h2 class="cast">CAST</h2>
-        <ul class="main-cast">
+        <h2 class="cast text-uppercase">CAST</h2>
+        <ul class="main-cast list-unstyled">
         <?php
           while( has_sub_field('cast') ): 
             echo '<li>'.get_sub_field('name').'</li>';
           endwhile; 
 
           if (get_field('additional_crew')) :
+            
+            echo '<li class="divider"></li>';
+
             while( has_sub_field('additional_crew') ): 
               echo '<li>'.get_sub_field('role').' '.get_sub_field('name').'</li>';
             endwhile; 
           endif;
         ?>
         </ul>
-        <?php if (get_field('other_info')) { ?>
+        <?php if (get_field('other_info')) : ?>
           <div class="other-info">
           <?php the_field('other_info'); ?>
           </div>
-        <?php } ?>
+        <?php endif; ?>
       
         </div>
       </div>
@@ -115,7 +118,6 @@ $parents = get_post_ancestors( $post->ID );
           endwhile; 
         ?>
         </ol>
-      <?php } ?>
 
       <?php if (get_field('running_time')) { echo 'Running time | '.get_field('running_time').' minutes'; } ?>
 

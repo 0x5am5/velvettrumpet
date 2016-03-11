@@ -14,7 +14,7 @@ elseif( get_field('slider') ): ?>
 		$images = get_field('slider');
 		shuffle($images);		
 	?>
-	<div class="carousel slide" data-ride="carousel">
+	<div class="carousel slide home-page-carousel" data-ride="carousel">
 		<ol class="carousel-indicators">
 		<?php foreach($images as $value) { ?>
     		<li data-target="#image-slider" data-slide-to="<?php echo $indicator ?>"></li>

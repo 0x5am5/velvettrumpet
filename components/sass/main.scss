@@ -29,11 +29,11 @@ Author URI: http://www.samgregorydigital.co.uk
 @import 'components/footer';
 @import 'components/about';
 @import 'components/soggybrass';
+@import 'components/production';
 @import 'components/productions';
 @import 'components/featured-img';
 @import 'components/woocommerce';
 @import 'components/post-nav';
-/*@import 'production';*/
 /*@import 'media-vt';*/
 /*@import 'slideshow';*/
 
@@ -58,10 +58,10 @@ font-size: 83px;
 	text-decoration: none;
 }
 
-.home-page .content a:hover,
-.home-page .content a:focus {
-	text-decoration: none;
-}
+// .home-page .content a:hover,
+// .home-page .content a:focus {
+// 	text-decoration: none;
+// }
 
 .home-page .quotes {
 	margin-top: 20px;
@@ -106,6 +106,7 @@ font-size: 83px;
 .bullet-list {
 	list-style: none;
 	margin-bottom: 20px;
+	padding-left: 0;
 }
 
 .bullet-list li:before {
