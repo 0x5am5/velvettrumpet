@@ -17,7 +17,7 @@ $parents = get_post_ancestors( $post->ID );
 
 		<?php if( get_field('banner') ) :
 			$image = get_field('banner');
-			echo '<img src="'.$image['url'].'" class="soggy-image no-shadow img-responsive" alt="Soggy Brass">';
+			echo '<img src="'.$image['url'].'" class="soggy-image no-shadow img-responsive featured-img" alt="Soggy Brass">';
 		endif; ?>
 
 		<div class="soggybrass">

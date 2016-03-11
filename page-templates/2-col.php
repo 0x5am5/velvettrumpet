@@ -84,7 +84,7 @@ $parents = get_post_ancestors( $post->ID );
         <?php the_content(); ?>
         
         <h2 class="cast text-uppercase">CAST</h2>
-        <ul class="main-cast list-unstyled">
+        <ul class="list-unstyled">
         <?php
           while( has_sub_field('cast') ): 
             echo '<li>'.get_sub_field('name').'</li>';

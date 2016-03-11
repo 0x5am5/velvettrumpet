@@ -24,6 +24,9 @@ h3, .h3 {
 	font-weight: 700;
 }
 
+// h1, .h1 {
+// 	font-family: $title-font;
+// }
 
 h1, .h1 {
 	font-family: $title-font;
@@ -171,6 +174,11 @@ table td  { padding:10px 0; }*/
 	right: -4px;
 	z-index:9;
 }
+
+.feature-img {
+	margin: 0 auto;
+}
+
 
 @media only screen and (max-width: $breakpointTablet) {
 	.content 
