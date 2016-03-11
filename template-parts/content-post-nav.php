@@ -28,14 +28,14 @@
 		?>
 
 		<div class="row">
-			<div class="col-sm-6">
+			<div class="col-xs-6">
 				<?php if (!empty($nextID)) { ?>
 					<a href="<?php echo get_permalink($nextID); ?>" title="<?php echo get_the_title($nextID); ?>">« Next</a>
 				<?php } else { ?>
 					<span>« Next</span>
 				<?php } ?>
 			</div>
-			<div class="col-sm-6">
+			<div class="col-xs-6">
 				<?php if (!empty($prevID)) { ?>			
 					<a href="<?php echo get_permalink($prevID); ?>" title="<?php echo get_the_title($prevID); ?>">Previous »</a>
 				<?php } else { ?>

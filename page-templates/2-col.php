@@ -25,19 +25,23 @@ $parents = get_post_ancestors( $post->ID );
     <?php endif; ?>
       
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-sm-6">
         <div class="visible-xs-block text-center">
           <div class="h2"><?php echo $page_title; ?></div>
           <em class="tagline"><?php the_field('tagline') ?></em>
         </div>
-      <?php if (get_field('poster_image')) : ?>
-        <div class="poster-large">
-          <?php if(get_field('booking_now')) : ?>
+        <?php if (has_post_thumbnail() || get_field('poster_image')) : ?>
+          <div class="poster-large">
+            <?php if(get_field('booking_now')) : ?>
             <span class="icon booking"></span>
-          <?php endif; ?>
-          <img src="<?php echo get_field('poster_image')['url']; ?>" alt="<?php echo get_field('poster_image')['title']; ?>">
-        </div>
-      <?php endif; ?>
+            <?php endif; ?>
+            <?php if (has_post_thumbnail()) :
+              the_post_thumbnail('post-thumbnail');
+            elseif(get_field('poster_image')) : ?> 
+              <img src="<?php echo get_field('poster_image')['url']; ?>" alt="<?php echo get_field('poster_image')['title']; ?>"/>
+            <?php endif; ?>
+          </div>
+        <?php endif; ?>
         <div class="additional-info">
           <?php if (get_field('performance_dates')) : ?>
             <h2 class="sr-only">Dates of Performance</h2>

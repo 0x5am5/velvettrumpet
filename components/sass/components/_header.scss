@@ -40,6 +40,12 @@
 
 	.mob-menu {
 		display:none;
+	}
+
+	.mobile-menu {
+		.social {
+			display: none;
+		}
 	}	
 
 	.current_page_item {
@@ -48,13 +54,21 @@
 		}
 	}
 	
-	.tagline { display:none; }
-
-	.menu-main-nav-container {
-		.social {
-			display: none;
-		}
+	.tagline { 
+		display:none; 
+		color: #fff;
+		padding: 10px;
+		text-align: center;
+		font-size: 11px;
+		border-top: 1px solid #fff;
+		margin: 10px 20px;
 	}
+
+	// .menu-main-nav-container {
+	// 	.social {
+	// 		display: none;
+	// 	}
+	// }
 
 }
 
@@ -75,6 +89,12 @@
 			padding: 10px;
 			font-size: 30px;
 		}
+
+		.mobile-menu {
+			.social {
+				display: block;
+			}
+		}	
 
 		.glyphicon-remove {
 			display: none;
@@ -103,7 +123,7 @@
 			text-align: center;
 			
 			a {
-				overflow: hidden;
+				// overflow: hidden;
 				padding: 5px;
 			}
 			
@@ -113,12 +133,7 @@
 		}
 
 		.tagline {
-			padding: 10px;
-			text-align: center;
-			font-size: 11px;
 			display: block;
-			border-top: 1px solid #fff;
-			margin: 10px 20px;
 		}
 		
 		.main-hide 

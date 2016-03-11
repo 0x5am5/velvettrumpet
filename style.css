@@ -7766,6 +7766,7 @@ th {
   .btn {
     display: block;
     margin-bottom: 5px;
+    width: 100%;
   }
 }
 @font-face {
@@ -8128,14 +8129,20 @@ table td  { padding:10px 0; }*/
 .header .mob-menu {
   display: none;
 }
+.header .mobile-menu .social {
+  display: none;
+}
 .header .current_page_item a {
   color: #BFA043;
 }
 .header .tagline {
   display: none;
-}
-.header .menu-main-nav-container .social {
-  display: none;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  font-size: 11px;
+  border-top: 1px solid #fff;
+  margin: 10px 20px;
 }
 
 @media only screen and (max-width: 769px) {
@@ -8151,6 +8158,9 @@ table td  { padding:10px 0; }*/
     right: 20px;
     padding: 10px;
     font-size: 30px;
+  }
+  .header .mobile-menu .social {
+    display: block;
   }
   .header .glyphicon-remove {
     display: none;
@@ -8173,19 +8183,13 @@ table td  { padding:10px 0; }*/
     text-align: center;
   }
   .header .social a {
-    overflow: hidden;
     padding: 5px;
   }
   .header .social li {
     margin: 0 10px;
   }
   .header .tagline {
-    padding: 10px;
-    text-align: center;
-    font-size: 11px;
     display: block;
-    border-top: 1px solid #fff;
-    margin: 10px 20px;
   }
   .header .main-hide {
     border-bottom: 0;

@@ -62,7 +62,7 @@
 						<span class="glyphicon glyphicon-remove"></span>
 					</a>
 					<nav>
-						<div class="menu-main-nav-container">
+						<div class="menu-main-nav-container mobile-menu">
 							<?php wp_nav_menu(array('menu' => 'Main Nav', 'container'=>0, 'menu_class' => 'list-inline list-unstyled')); ?>
 						
 							<ul class="social list-inline">
@@ -92,7 +92,7 @@
 									</a>
 								</li>				
 							</ul>
-							<div class="tagline"><?php get_bloginfo('tagline'); ?></div>
+							<div class="tagline"><?php bloginfo('description'); ?></div>
 						</div>		
 					</nav>					
 				</div>
