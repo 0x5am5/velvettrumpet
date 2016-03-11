@@ -8343,10 +8343,6 @@ table td  { padding:10px 0; }*/
 .soggybrass .soggy-info {
   padding: 0 200px;
 }
-.soggybrass h2 {
-  text-align: left;
-  font-size: 38px;
-}
 .soggybrass li {
   padding-left: 15px;
 }
@@ -8357,6 +8353,12 @@ table td  { padding:10px 0; }*/
 
 .soggy-brass-archive img {
   margin: 0 auto 5px auto;
+}
+.soggy-brass-archive h2 {
+  text-align: center;
+}
+.soggy-brass-archive li {
+  margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 769px) {

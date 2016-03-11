@@ -146,12 +146,11 @@ $parents = get_post_ancestors( $post->ID );
         $args = array(
           'sort_order' => 'asc',
           'sort_column' => 'post_date',
-          'child_of' => $parents[0],
+          'child_of' => $post->ID,
           'post_type' => 'page',
           'post_status' => 'publish'
         );
 
-        set_query_var( 'parents', $parents );
         set_query_var( 'args', $args );
         get_template_part( 'template-parts/content', 'post-nav' ); 
       ?>
