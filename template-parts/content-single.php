@@ -12,7 +12,7 @@
           echo get_the_date('jS F Y').' | '.get_field('the_venue');
         endif; 
       ?> 
-    </em> 
+      </em> 
     </div>
     <?php if (has_post_thumbnail() || get_field('poster_image')) : ?>
     <div class="poster-large">
@@ -41,6 +41,9 @@
       </em>      
     </div>
     <?php echo the_content(); ?>
+
+    <?php get_template_part( 'template-parts/content', 'performance-images' ); ?>
+    
   </div>
   <?php 
     $args = array(

@@ -1,0 +1,13 @@
+.carousel--performance-images {
+  margin-bottom: 25px;
+
+
+  .carousel-inner > .item img {
+    display: inline-block;
+  }
+
+  .carousel-control {
+      width: 60px;
+      height: 150px;
+  }
+}
