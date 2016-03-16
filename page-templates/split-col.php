@@ -13,12 +13,16 @@ $parents = get_post_ancestors( $post->ID );
 
 	<?php while ( have_posts() ) : the_post(); ?>
 
-		<h1<?php if(get_field('hide_header')) :  echo ' class="sr-only"';  endif; ?>><?php echo get_the_title($ID); ?></h1>
+		<h1<?php if(get_field('hide_header')) :  echo ' class="sr-only"';  endif; ?>><?php the_title($ID); ?></h1>
 
-		<?php if( get_field('banner') ) :
-			$image = get_field('banner');
-			echo '<img src="'.$image['url'].'" class="soggy-image no-shadow img-responsive featured-img" alt="Soggy Brass">';
-		endif; ?>
+		<?php 
+			if (has_post_thumbnail()) :
+              echo get_the_post_thumbnail($ID, 'full', array('class'=>'soggy-image no-shadow img-responsive featured-img'));
+			elseif( get_field('banner') ) :
+				$image = get_field('banner');
+				echo '<img src="'.$image['url'].'" class="soggy-image no-shadow img-responsive featured-img" alt="Soggy Brass">';
+			endif; 
+		?>
 
 		<div class="soggybrass">
 			<?php if (get_field('information')) : ?>
@@ -39,24 +43,7 @@ $parents = get_post_ancestors( $post->ID );
 			<?php the_content(); ?>					
 			
 			<?php if (get_the_title($ID) === 'Soggy Brass') : ?>
-				<div class="soggy-brass-archive">
-					<h2>The Soggy Brass archive</h2>
-					<div class="row">
-						<ul class="list-unstyled">
-						<?php
-							$args = array('category_name' => 'soggy brass', 'orderby' => 'date');
-							foreach (get_posts($args) as $post) : setup_postdata( $post ); ?>
-								<li class="col-sm-3 col-xs-6 text-center">
-									<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-										<?php the_post_thumbnail('thumbnail', array('class'=>'img-responsive')); ?>
-										<?php the_title(); ?>
-									</a>
-								</li>
-							<?php endforeach; 
-							wp_reset_postdata();?>
-						</ul>							
-					</div>
-				</div>
+				<?php get_template_part( 'template-parts/content', 'soggybrass-archive' ); ?>
 			<?php endif; ?>
 		</div>
 		<?php endwhile; ?>

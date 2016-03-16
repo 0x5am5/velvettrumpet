@@ -9,7 +9,9 @@
 <html class="no-js" <?php language_attributes(); ?>>
 <!--<![endif]-->
 	<head>
-		<title><?php bloginfo('name'); ?> - <?php echo get_the_title($ID); ?></title>		
+		<title>
+			<?php bloginfo('name'); ?> - 
+			<?php echo get_the_title($ID); ?></title>		
 		<meta property="og:image" content="<?php bloginfo('template_directory'); ?>/images/vt-logo.jpg">
 		<link rel="apple-touch-icon" href="<?php bloginfo('template_directory'); ?>/images/vt-icon.png" />
 		<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/favicon.ico" />	
@@ -57,9 +59,9 @@
 					</ul>
 					
 					<a href="#" class="mob-menu">
-						<span class="sr-only">Show menu</span>
 						<span class="glyphicon glyphicon-menu-hamburger"></span>
 						<span class="glyphicon glyphicon-remove"></span>
+						<span class="mob-menu-text">Menu</span>
 					</a>
 					<nav>
 						<div class="menu-main-nav-container mobile-menu">

@@ -28,7 +28,15 @@ $parents = get_post_ancestors( $post->ID );
       <div class="col-sm-6">
         <div class="visible-xs-block text-center">
           <div class="h2"><?php echo $page_title; ?></div>
-          <em class="tagline"><?php the_field('tagline') ?></em>
+          <em class="tagline">
+            <?php 
+              if (get_field('tagline')):
+                  the_field('tagline');
+              elseif (get_field('venue')):
+                echo get_the_date('jS F \'y').' | '.get_field('venue');
+              endif; 
+            ?> 
+          </em> 
         </div>
         <?php if (has_post_thumbnail() || get_field('poster_image')) : ?>
           <div class="poster-large">
@@ -82,7 +90,15 @@ $parents = get_post_ancestors( $post->ID );
       <div class="col-sm-6<?php if (apply_filters("the_title", get_the_title(end($parents))) === 'Productions') echo ' production'; if ($page_title == 'Soggy Brass') echo ' right-col'; ?>">
         <div class="hidden-xs">
           <h1 class="h2"><?php echo $page_title; ?></h1>
-          <em class="tagline"><?php the_field('tagline') ?></em>      
+          <em class="tagline">
+            <?php 
+              if (get_field('tagline')):
+                  the_field('tagline');
+              elseif (get_field('venue')):
+                echo get_the_date('jS F \'y').' | '.get_field('venue');
+              endif; 
+            ?> 
+          </em>     
         </div>
         <h2 class="sr-only">Synopsis</h2>        
         <?php the_content(); ?>
@@ -144,7 +160,7 @@ $parents = get_post_ancestors( $post->ID );
       
       <?php 
         $args = array(
-          'sort_order' => 'asc',
+          'sort_order' => 'desc',
           'sort_column' => 'post_date',
           'child_of' => $post->ID,
           'post_type' => 'page',

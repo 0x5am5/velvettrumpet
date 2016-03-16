@@ -4,7 +4,15 @@
   <div class="col-sm-6">
     <div class="visible-xs-block text-center">
       <div class="h2"><?php echo $page_title; ?></div>
-      <em class="tagline"><?php echo get_field('tagline') ?></em>
+      <em class="tagline">
+      <?php 
+        if (get_field('tagline')):
+            the_field('tagline');
+        elseif (get_field('the_venue')):
+          echo get_the_date('jS F Y').' | '.get_field('the_venue');
+        endif; 
+      ?> 
+    </em> 
     </div>
     <?php if (has_post_thumbnail() || get_field('poster_image')) : ?>
     <div class="poster-large">
@@ -22,7 +30,15 @@
   <div class="col-sm-6 text-center">
     <div class="hidden-xs">
       <h1 class="h2"><?php echo $page_title; ?></h1>
-      <em class="tagline"><?php echo get_field('tagline') ?></em>      
+      <em class="tagline">
+        <?php 
+          if (get_field('tagline')):
+              the_field('tagline');
+          elseif (get_field('the_venue')):
+            echo get_the_date('jS F Y').' | '.get_field('the_venue');
+          endif; 
+        ?> 
+      </em>      
     </div>
     <?php echo the_content(); ?>
   </div>

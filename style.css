@@ -8128,6 +8128,16 @@ table td  { padding:10px 0; }*/
 }
 .header .mob-menu {
   display: none;
+  line-height: 1;
+  color: #631A1A;
+}
+.header .mob-menu:hover, .header .mob-menu:focus {
+  text-decoration: none;
+}
+.header .mob-menu-text {
+  display: block;
+  font-size: 9px;
+  text-transform: uppercase;
 }
 .header .mobile-menu .social {
   display: none;

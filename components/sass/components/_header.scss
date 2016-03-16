@@ -40,7 +40,19 @@
 
 	.mob-menu {
 		display:none;
+		line-height: 1;
+		color: $vt-brown;
+
+		&:hover,
+		&:focus {
+			text-decoration: none;
+		}
 	}
+	.mob-menu-text {
+		display: block;
+		font-size: 9px;
+		text-transform: uppercase;
+	}	
 
 	.mobile-menu {
 		.social {
