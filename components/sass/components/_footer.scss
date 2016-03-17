@@ -54,8 +54,25 @@
 	
 	.twitter-ticker
 	{
-		padding: 10px 0;
+		padding: 10px 50px;
 		margin: 10px 0 0;
+		text-align: left;
+
+		&__interacions
+		{
+			margin-top: 5px;
+		}
+
+		.media {
+			border: 1px solid #eee;
+    		border-radius: 3px;
+    		padding: 10px;
+		}
+
+		.media-left img {
+			border: 1px solid #eee;
+    		border-radius: 50%;
+		}
 	}
 /*	.twitter {
 		width: 35px;
@@ -72,6 +89,14 @@
 .home-page .footer, 
 .contact-page .footer {
 	position: relative;
+}
+
+@media only screen and (max-width: $screen-md-min) {
+	.footer {
+		.twitter-ticker {
+			padding: 10px 0;
+		}
+	}
 }
 
 @media only screen and (max-width: $breakpointTablet) {

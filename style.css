@@ -4048,7 +4048,7 @@ tbody.collapse.in {
 .dropdown-menu {
   position: absolute;
   top: 100%;
-  right: 0;
+  left: 0;
   z-index: 1000;
   display: none;
   float: left;
@@ -8300,8 +8300,21 @@ table td  { padding:10px 0; }*/
   padding-right: 20px;
 }
 .footer .twitter-ticker {
-  padding: 10px 0;
+  padding: 10px 50px;
   margin: 10px 0 0;
+  text-align: left;
+}
+.footer .twitter-ticker__interacions {
+  margin-top: 5px;
+}
+.footer .twitter-ticker .media {
+  border: 1px solid #eee;
+  border-radius: 3px;
+  padding: 10px;
+}
+.footer .twitter-ticker .media-left img {
+  border: 1px solid #eee;
+  border-radius: 50%;
 }
 
 .home-page .footer,
@@ -8309,6 +8322,11 @@ table td  { padding:10px 0; }*/
   position: relative;
 }
 
+@media only screen and (max-width: 992px) {
+  .footer .twitter-ticker {
+    padding: 10px 0;
+  }
+}
 @media only screen and (max-width: 769px) {
   .footer {
     /*.col 

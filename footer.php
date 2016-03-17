@@ -15,26 +15,30 @@ include 'twitter.php';
 		<footer>
 			<div class="footer">
 				<div class="inner">
-					<div class="container">
+					<div class="container ">
 						<h2 class="sr-only">Twitter feed</h2>		
 						<div class="carousel slide twitter-ticker" data-ride="carousel">
 							<div class="carousel-inner" role="listbox">					
-								<?php 
-									foreach ($tweets as $key => $value) {
-										if ($key == 0) echo '<div class="item active">';
-										else echo '<div class="item">';
-
-										echo '<a href="https://twitter.com/velvettrumpet/status/'.$value->id_str.'" target="_blank">'.$value->text.'</a></li>';
-										echo '</div>';
-									}
-								?>
+								<?php foreach ($tweets as $key => $value) { ?>
+										<div class="item<?php if ($key === 0) echo ' active'; ?>">
+											<div class="media">
+												<a href="http://twitter.com/velvettrumpet" class="media-left">
+													<img class="media-object no-shadow" src="<?php echo $value->user->profile_image_url_https; ?>" alt="Profile image">
+												</a>
+												<div class="media-body">
+													<h4 class="media-heading"><?php echo $value->user->name; ?></h4>
+													<a href="https://twitter.com/velvettrumpet/status/<?php echo $value->id_str; ?>" target="_blank">"<?php echo $value->text; ?>"</a></li>
+													<div class="twitter-ticker__interacions">
+														<span class="glyphicon glyphicon-refresh"></span><?php echo $value->retweet_count; ?>
+														<span class="glyphicon glyphicon-heart"></span><?php echo $value->favorite_count; ?>														
+													</div>
+												</div>
+											</div>
+										</div>
+								<?php } ?>
 							</ul>
 						</div>					
 					</div>
-					<a href="http://twitter.com/velvettrumpet" target="_blank" title="Follow us on Twitter" class="twitter-link">
-						<span class="sr-only">Follow us on Twitter</span>
-						<span class="icon twitter"></span>
-					</a>
 					<h2 class="sr-only">menu</h2>
 					<?php wp_nav_menu(array('menu' => 'Main Nav', 'menu_class' => 'list-unstyled menu clearfix')); ?>
 					<div class="copywrite">

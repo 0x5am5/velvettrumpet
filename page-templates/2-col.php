@@ -51,18 +51,20 @@ $parents = get_post_ancestors( $post->ID );
           </div>
         <?php endif; ?>
         <div class="additional-info">
+          <div class="hidden-xs">
           <?php if (get_field('performance_dates')) : ?>
-            <h2 class="sr-only">Dates of Performance</h2>
-            <ol class="bullet-list">
-              <?php
-                while( has_sub_field('performance_dates') ) :
-                  echo '<li>'.get_sub_field('date').'</li>';
-                endwhile;
-              ?>
-            </ol>
+              <h2 class="sr-only">Dates of Performance</h2>
+              <ol class="bullet-list">
+                <?php
+                  while( has_sub_field('performance_dates') ) :
+                    echo '<li>'.get_sub_field('date').'</li>';
+                  endwhile;
+                ?>
+              </ol>
           <?php endif; ?>
 
           <?php if (get_field('running_time')) echo '<p>Running time | '.get_field('running_time').' minutes</p>'; ?>
+          </div>
 
           <?php if (get_field('next_soggy_brass')) the_field('next_soggy_brass'); ?>
           
