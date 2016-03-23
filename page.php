@@ -7,7 +7,7 @@
 
 		if (!is_front_page()) : ?>
 
-			<h1<?php if(get_field('hide_header')) :  echo ' class="sr-only"';  endif; ?>><?php echo get_the_title($ID); ?></h1>
+			<h1<?php if(get_field('hide_header')) :  echo ' class="sr-only"';  endif; ?>><?php the_title($ID); ?></h1>
 
 			<?php else :
 
@@ -17,7 +17,7 @@
 
 		endif;
 
-		if(get_field('mission_statement')) : ?>
+		 if(get_field('mission_statement')) : ?>
 
 			<h2>Mission Statement</h2>
 			<div class="mission-statement">
@@ -38,9 +38,8 @@
 
 		endif;
 			
-		echo '<div class="main-content">';
-			the_content();
-		echo '</div>';
+		echo '<div class="main-content">'.get_the_content().'</div>';
+		
 	endwhile; ?>
 
 	</div>

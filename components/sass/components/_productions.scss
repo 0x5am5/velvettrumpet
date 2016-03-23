@@ -1,18 +1,22 @@
-.production 
-{
-	margin-bottom: 25px;
-}
+.production-lest {
+	.production {
+		margin-bottom: 25px;
+	}
 
-.production a {
-	position: relative;
-	display: block;
-}
-
-.cast {
-	font-size: 16px;
+	.production a {
+		position: relative;
+		display: block;
+	}
 }
 
 
+@media only screen and (max-width: $breakpointTablet) {
+	.production-lest {
+		.production a {
+			display: inline-block;
+		}
+	}
+}
 
 
 

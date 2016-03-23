@@ -47,13 +47,16 @@
   </div>
   <?php 
     $args = array(
-     'sort_order' => 'asc',
+     'order' => 'asc',
      'sort_column' => 'post_date',
      'post_type' => 'post',
+     'orderby' => 'date',
      'post_status' => 'publish',
-     'category_name' => 'soggy brass'
+     'category_name' => 'soggy brass',
+     'posts_per_page'   => 99,
     ); 
-    set_query_var( 'args', $args );
+    $query = get_posts($args);
+    set_query_var('query', $query);
     get_template_part( 'template-parts/content', 'post-nav'); 
   ?>
 </div>

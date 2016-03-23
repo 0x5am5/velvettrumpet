@@ -7,10 +7,9 @@
         <?php 
           $image = get_sub_field('image');
         ?>
-          <!-- <a href="<?php// echo $image['url']; ?>" data-lightbox="images"> -->
+          <a href="<?php echo $image['url']; ?>" data-lightbox="images">
             <img src="<?php echo $image['sizes']['thumbnail']; ?>" alt="image-<?php echo $i; ?>"/>
-            <!-- <span class="shade"></span> -->
-          <!-- </a> -->
+          </a>
       <?php 
         $i++; 
         if ($i % 5 === 0) echo '</div><div class="item">';
@@ -38,10 +37,9 @@
       <div class="item<?php if ($i === 0) echo ' active'; ?>">
         
         <?php $image = get_sub_field('image'); ?>
-          <!-- <a href="<?php// echo $image['url']; ?>" data-lightbox="images"> -->
+          <a href="<?php echo $image['url']; ?>" data-lightbox="images">
             <img src="<?php echo $image['sizes']['thumbnail']; ?>" alt="image-<?php echo $i; ?>"/>
-            <!-- <span class="shade"></span> -->
-          <!-- </a> -->
+          </a>
 
       </div>
     <?php $i++; ?>

@@ -161,10 +161,11 @@ $parents = get_post_ancestors( $post->ID );
       <?php get_template_part( 'template-parts/content', 'performance-images' ); ?>
       
       <?php 
+
         $args = array(
-          'sort_order' => 'desc',
+          'sort_order' => 'asc',
           'sort_column' => 'post_date',
-          'child_of' => $post->ID,
+          'child_of' => $post->post_parent,
           'post_type' => 'page',
           'post_status' => 'publish'
         );

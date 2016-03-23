@@ -13,6 +13,7 @@ Author URI: http://www.samgregorydigital.co.uk
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import url(css/lightbox.css);
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -8258,6 +8259,9 @@ table td  { padding:10px 0; }*/
   	}*/
   /*.twitter:hover { background-position: -120px 0px }*/
 }
+.footer .container {
+  padding-top: 0;
+}
 .footer .inner {
   padding: 10px 0;
   text-align: center;
@@ -8312,9 +8316,38 @@ table td  { padding:10px 0; }*/
   border-radius: 3px;
   padding: 10px;
 }
+.footer .twitter-ticker .media-oject {
+  background-color: #FFF;
+}
 .footer .twitter-ticker .media-left img {
   border: 1px solid #eee;
   border-radius: 50%;
+}
+.footer .twitter-ticker .twitter__retweeted {
+  color: #666;
+  font-size: 11px;
+}
+.footer .twitter-ticker .twitter__retweeted .glyphicon {
+  color: #666;
+}
+.footer .twitter-ticker .media-heading {
+  display: inline;
+}
+.footer .twitter-ticker .twitter__text {
+  display: block;
+}
+.footer .twitter-ticker__interacion-icon {
+  margin-right: 5px;
+}
+.footer .twitter-ticker .item-img {
+  background-size: cover;
+  background-position: center center;
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0.1;
+  z-index: -1;
 }
 
 .home-page .footer,
@@ -8506,19 +8539,19 @@ ul .divider {
 		}
 	}
 }*/
-.production {
+.production-lest .production {
   margin-bottom: 25px;
 }
-
-.production a {
+.production-lest .production a {
   position: relative;
   display: block;
 }
 
-.cast {
-  font-size: 16px;
+@media only screen and (max-width: 769px) {
+  .production-lest .production a {
+    display: inline-block;
+  }
 }
-
 /*.production-list 
 {
 	padding-left: 0;

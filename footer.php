@@ -2,15 +2,6 @@
 include 'twitter.php';
 	$tweets = $twitter->get('https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=velvettrumpet&count=5');
 	$GLOBALS['$mentions'] = $twitter->get('https://api.twitter.com/1.1/search/tweets.json?q=joyVT&count=10');
-
-	// $curl = curl_init();
-	// curl_setopt_array($curl, array(
- //    		CURLOPT_RETURNTRANSFER => 1,
- //    		CURLOPT_URL => 'https://api.instagram.com/v1/users/237397623/media/recent/?access_token=237397623.f60051c.7a28167c2a974f7785e75e1c4ae3232b&count=10'
-	// ));
-	// $result = curl_exec($curl);
-	// curl_close($curl);
-	// $feed = json_decode($result);
 ?>
 		<footer>
 			<div class="footer">
@@ -20,20 +11,56 @@ include 'twitter.php';
 						<div class="carousel slide twitter-ticker" data-ride="carousel">
 							<div class="carousel-inner" role="listbox">					
 								<?php foreach ($tweets as $key => $value) { ?>
+									<?php $bg_image = $value->extended_entities->media[0]->media_url; ?>
 										<div class="item<?php if ($key === 0) echo ' active'; ?>">
 											<div class="media">
-												<a href="http://twitter.com/velvettrumpet" class="media-left">
-													<img class="media-object no-shadow" src="<?php echo $value->user->profile_image_url_https; ?>" alt="Profile image">
-												</a>
+												<?php 
+													if ($value->retweeted_status) :
+														$name = $value->retweeted_status->user->name;
+														$screen_name = $value->retweeted_status->screen_name;
+														$text = $value->retweeted_status->text;
+														$retweet = $value->retweeted_status->retweet_count;
+														$favourite = $value->retweeted_status->favorite_count;
+														$image = $value->retweeted_status->user->profile_image_url_https;
+														$tweet_url = "https://twitter.com/".$screen_name."/status/".$value->retweeted_status->id_str;
+														$user_url = "https://twiiter.com/".$screen_name;
+														$retweeted_status = "<span class='twitter__retweeted'><span class='glyphicon glyphicon-refresh'></span> Retweeted by Velvet Trumpet</span>";
+													else :
+														$name = $value->user->name;
+														$screen_name = $value->screen_name;
+														$text = $value->text;
+														$retweet = $value->retweet_count;
+														$favourite = $value->favorite_count;
+														$image = $value->user->profile_image_url_https;
+														$tweet_url = "https://twitter.com/".$screen_name."/status/".$value->id_str;
+														$user_url = "https://twiiter.com/".$screen_name;
+														$retweeted_status = "";
+													endif;
+												?>
+												<span class="media-left">
+													<img class="media-object no-shadow" src="<?php echo $image; ?>" alt="Profile image">
+												</span>
 												<div class="media-body">
-													<h4 class="media-heading"><?php echo $value->user->name; ?></h4>
-													<a href="https://twitter.com/velvettrumpet/status/<?php echo $value->id_str; ?>" target="_blank">"<?php echo $value->text; ?>"</a></li>
+													<h4 class="media-heading">
+														<a href="<?php echo $user_url; ?>" target="_blank">
+															<?php echo $name; ?>
+														</a>
+													</h4>
+													<a href="<?php echo $tweet_url; ?>" target="_blank" class="twitter__text"><?php echo $text; ?></a></li>
 													<div class="twitter-ticker__interacions">
-														<span class="glyphicon glyphicon-refresh"></span><?php echo $value->retweet_count; ?>
-														<span class="glyphicon glyphicon-heart"></span><?php echo $value->favorite_count; ?>														
+														<span class="glyphicon glyphicon-refresh twitter-ticker__interacion-icon"></span><?php echo $retweet; ?>
+														<span class="glyphicon glyphicon-heart twitter-ticker__interacion-icon"></span><?php echo $favourite; ?>														
+														<?php if ($value->retweeted_status) : ?>
+														<span class="pull-right">
+															<?php echo $retweeted_status; ?>															
+														</span>
+													<?php endif; ?>
 													</div>
 												</div>
 											</div>
+											<?php if ($value->retweeted_status) : 
+												echo '<div style="background-image: url('.$bg_image.')" class="item-img"></div>'; 
+												endif; ?>
 										</div>
 								<?php } ?>
 							</ul>

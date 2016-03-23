@@ -45,8 +45,8 @@ module.exports = function(grunt) {
 
     copy: {
       files: {
-        src: ['components/js/*.js'],           // copy all files and subfolders
-        dest: 'js/main.js',    // destination folder
+        src: ['components/js/*.js'],
+        dest: 'js/main.js'
       },
       bootstrap: {
         src: 'node_modules/bootstrap-sass/assets/javascripts/bootstrap.js', 
@@ -56,6 +56,21 @@ module.exports = function(grunt) {
         expand: true,
         src: 'node_modules/bootstrap-sass/assets/fonts/bootstrap/*',
         dest: 'css/fonts/',
+        filter: 'isFile',
+        flatten: true
+      },
+      lightboxJS: {
+        src: 'node_modules/lightbox2/dist/js/lightbox.js', 
+        dest: 'js/lightbox.js'
+      },
+      lightboxCSS: {
+        src: 'node_modules/lightbox2/dist/css/lightbox.css', 
+        dest: 'css/lightbox.css'
+      },
+      lightboxImg: {
+        expand: true,
+        src: 'node_modules/lightbox2/dist/images/*', 
+        dest: 'images/',
         filter: 'isFile',
         flatten: true
       }
