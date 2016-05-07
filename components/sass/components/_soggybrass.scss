@@ -1,0 +1,48 @@
+.soggybrass
+{
+	color: #2c3046;
+	
+	.soggy-info
+	{
+		padding: 0 200px;
+	}
+
+	// h2 
+	// {
+	// 	text-align: left;
+	// 	font-size: 38px;
+	// }
+
+	li {
+		padding-left: 15px;
+	}
+
+}
+
+.soggy-image {
+	margin: 0 auto;
+}
+
+.soggy-brass-archive {
+	img {
+		margin: 0 auto 5px auto;
+	}
+
+	h2 {
+		text-align: center
+	}
+
+	li {
+		margin-bottom: 10px;
+	}
+}
+
+@media only screen and (max-width: $breakpointTablet) {
+	.soggybrass
+	{
+		.soggy-info
+		{
+			padding: 0;
+		}
+	}
+}

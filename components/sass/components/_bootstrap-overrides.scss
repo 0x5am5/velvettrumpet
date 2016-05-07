@@ -1,0 +1,35 @@
+.glyphicon {
+  color: $vt-brown;
+}
+
+.carousel-control {
+	&.left {
+		background-image: none;
+	}
+	&.right {
+		background-image: none;
+	}
+}
+
+.home-page-carousel {
+	max-width: 860px; 
+	margin: 0 auto 25px auto;
+}
+
+.container {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  text-align: center;
+}
+
+blockquote {
+  border-left: none;
+}
+
+@media only screen and (max-width: $breakpointTablet) {
+	.btn {
+		display: block;
+		margin-bottom: 5px;
+		width: 100%;
+	}
+}

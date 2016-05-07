@@ -1,11 +1,11 @@
 <?php get_header(); ?>
 
 <div class="wrapper">
-	<div class="content">
+	<div class="container">
 		
 			<?php woocommerce_content(); ?>
 		
-        </div>
+  </div>
 </div>
 	
 <?php get_footer(); ?>

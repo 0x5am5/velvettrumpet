@@ -1,27 +1,30 @@
 <?php get_header(); ?>
 
 <div class="wrapper<?php if (get_the_title() === 'Productions') echo ' production-list'; ?>">
-	<div class="content">
+	<div class="container">
 
 	<?php while ( have_posts() ) : the_post();
 
-		if (!is_front_page()) { ?>
+		if (!is_front_page()) : ?>
 
-			<h1<?php if(get_field('hide_header')) :  echo ' class="access"';  endif; ?>><?php echo get_the_title($ID); ?></h1>
+			<h1<?php if(get_field('hide_header')) :  echo ' class="sr-only"';  endif; ?>><?php the_title($ID); ?></h1>
 
-		<?php } else { ?>
+			<?php else :
 
-			<h1 class="access">Velvet Trumpet</h1>
+			echo '<h1 class="sr-only">Velvet Trumpet</h1>';
 
-			<?php get_template_part( 'template-parts/content', 'slider' );
-
-		}
-
-		if(get_field('mission_statement')) :
-
-			get_template_part( 'template-parts/content', 'mission-statement' );
+			get_template_part( 'template-parts/content', 'slider' ); 
 
 		endif;
+
+		 if(get_field('mission_statement')) : ?>
+
+			<h2>Mission Statement</h2>
+			<div class="mission-statement">
+				<?php the_field('mission_statement'); ?>
+			</div>  
+
+		<?php endif;
 
 		if(get_field('staff_member')) :
 			
@@ -35,10 +38,8 @@
 
 		endif;
 			
-
-		the_content();
-
-
+		echo '<div class="main-content">'.get_the_content().'</div>';
+		
 	endwhile; ?>
 
 	</div>

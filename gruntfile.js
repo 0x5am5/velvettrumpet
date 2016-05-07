@@ -1,9 +1,10 @@
+// require('load-grunt-tasks')(grunt);
+
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-autoprefixer');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -11,8 +12,13 @@ module.exports = function(grunt) {
     uglify: {
       my_target: {
         files: {
-          'js/main.js': 'components/js/main.js'
+          'js/main.js': ['components/js/main.js']
         }
+      },
+      bootstrap: {
+        files: {
+          'js/bootstrap.js': ['node_modules/bootstrap-sass/assets/javascripts/bootstrap.js']
+        }        
       }
     },
 
@@ -23,7 +29,7 @@ module.exports = function(grunt) {
           sourcemap: 'none'
         },
         files: {
-          'compiled/style.css': 'components/sass/main.scss'
+          'style.css': 'components/sass/main.scss'
         }
       },
       build: {
@@ -39,22 +45,48 @@ module.exports = function(grunt) {
 
     copy: {
       files: {
-        src: 'components/js/*.js',           // copy all files and subfolders
-        dest: 'js/main.js',    // destination folder
+        src: ['components/js/*.js'],
+        dest: 'js/main.js'
+      },
+      bootstrap: {
+        src: 'node_modules/bootstrap-sass/assets/javascripts/bootstrap.js', 
+        dest: 'js/bootstrap.js'
+      },
+      glyphicons: {
+        expand: true,
+        src: 'node_modules/bootstrap-sass/assets/fonts/bootstrap/*',
+        dest: 'css/fonts/',
+        filter: 'isFile',
+        flatten: true
+      },
+      lightboxJS: {
+        src: 'node_modules/lightbox2/dist/js/lightbox.js', 
+        dest: 'js/lightbox.js'
+      },
+      lightboxCSS: {
+        src: 'node_modules/lightbox2/dist/css/lightbox.css', 
+        dest: 'css/lightbox.css'
+      },
+      lightboxImg: {
+        expand: true,
+        src: 'node_modules/lightbox2/dist/images/*', 
+        dest: 'images/',
+        filter: 'isFile',
+        flatten: true
       }
     },
 
-    autoprefixer: {
-      options: {
-        browsers: ['last 2 versions']
-      },
-      multiple_files: {
-        expand: true,
-        flatten: true,
-        src: 'compiled/*.css',
-        dest: ''
-      }
-    },
+    // postcss: {
+    //   options: {
+    //     map: true,
+    //     processors: [
+    //       require('autoprefixer')({browsers: ['last 1 version']}),
+    //     ]
+    //   },
+    //   dist: {
+    //     src: 'components/sass/*/**'
+    //   }
+    // },
 
     watch: {
       options: { livereload: true },
@@ -63,12 +95,14 @@ module.exports = function(grunt) {
         tasks: ['copy']        
       },
       css : {
-        files: ['components/sass/*'],
-        tasks: ['sass:dev', 'autoprefixer']
+        files: ['components/sass/*/**.scss'],
+        tasks: ['sass:dev']
       }
-    },
+    }
   });
 
-  grunt.registerTask('default', ['watch']);
-  grunt.registerTask('build', ['sass:build', 'autoprefixer', 'uglify' ])
+
+  grunt.registerTask('default', ['copy','sass:dev', 'watch']);
+  grunt.registerTask('build', ['sass:build', 'uglify' ])
+
 }

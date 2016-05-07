@@ -1,0 +1,209 @@
+.header 
+{
+	background: #fff;
+
+	
+	
+	img {
+		display: none;
+	}
+
+	.main-hide {
+  	border-bottom: 1px solid #000;
+		text-align: center;
+		padding-top: 10px;
+		margin: 0 20px;
+		z-index: 1001;
+	}
+	
+	.menu-main-nav-container {
+		text-transform: uppercase;
+		
+		a {
+			font-family: 'rabbit';
+			font-size: 22px;
+
+			&:hover,
+			&:focus {
+				text-decoration: none;
+			}
+		}
+
+		li {
+			margin: 0 20px;
+		} 
+	}
+	
+	.social li {
+		padding: 0 10px;
+	}
+
+	.mob-menu {
+		display:none;
+		line-height: 1;
+		color: $vt-brown;
+
+		&:hover,
+		&:focus {
+			text-decoration: none;
+		}
+	}
+	.mob-menu-text {
+		display: block;
+		font-size: 9px;
+		text-transform: uppercase;
+	}	
+
+	.mobile-menu {
+		.social {
+			display: none;
+		}
+	}	
+
+	.current_page_item {
+		a {
+			color: $vt-gold;
+		}
+	}
+	
+	.tagline { 
+		display:none; 
+		color: #fff;
+		padding: 10px;
+		text-align: center;
+		font-size: 11px;
+		border-top: 1px solid #fff;
+		margin: 10px 20px;
+	}
+
+	// .menu-main-nav-container {
+	// 	.social {
+	// 		display: none;
+	// 	}
+	// }
+
+}
+
+@media only screen and (max-width: $breakpointTablet) {
+
+
+	.header
+	{
+		position: fixed;
+		width: 100%;
+		border-bottom: 1px solid #000;
+
+		.mob-menu {
+			display:block;	
+			position: absolute;
+			top:20px;
+			right: 20px;
+			padding: 10px;
+			font-size: 30px;
+		}
+
+		.mobile-menu {
+			.social {
+				display: block;
+			}
+		}	
+
+		.glyphicon-remove {
+			display: none;
+		}
+
+		.active {
+			.glyphicon-menu-hamburger {
+				display: none;
+			}
+			.glyphicon-remove {
+				display: inline-block;
+			}
+		}
+
+		.menu { 
+			padding: 0; 
+
+			a {
+				padding:5px;
+				font-size: 28px;
+			}
+		}
+			
+		.social {
+			display: block;
+			text-align: center;
+			
+			a {
+				// overflow: hidden;
+				padding: 5px;
+			}
+			
+			li {
+				margin: 0 10px;
+			}
+		}
+
+		.tagline {
+			display: block;
+		}
+		
+		.main-hide 
+		{
+			border-bottom: 0;
+
+/*			.social 
+			{
+				li:not(.vt-logo)
+				{
+					display:none;
+				}
+			}*/
+		}
+
+		.menu-main-nav-container 
+		{
+			display:none;
+			top: 86px;
+			padding: 20px 0 0;
+			background: rgba(0,0,0,.9);
+			// box-shadow: 0 5px 25px #000;
+			position: absolute;
+			width: 100%;
+			left: 0;
+
+			a 
+			{
+				color: #fff;
+				display: inline-block;
+			}
+			
+			&.show 
+			{
+				display:block;
+			}
+			
+			.social
+			{
+				li:not(.vt-logo) {
+					display: inline-block
+				}	
+				.vt-logo
+				{
+					display: none;
+				}			
+			}
+		}
+
+		#menu-main-nav li {
+			display:block;
+			margin:0;
+		}
+	}	
+}
+
+@media only screen and (max-width: $screen-sm-min) {
+	.header {
+		z-index: 10;
+	}
+}

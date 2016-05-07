@@ -30,8 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <div itemscope itemtype="<?php echo woocommerce_get_product_schema(); ?> grid" id="product-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<div class="col w-50">
-		<div class="pad">
+	<div class="col-sm-6">
 			<?php
 				/**
 				 * woocommerce_before_single_product_summary hook
@@ -41,13 +40,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 				 */
 				do_action( 'woocommerce_before_single_product_summary' );
 			?>			
-		</div>
-
-		
 	</div>
-	<div class="col w-50">
-		<div class="pad">
-		
+	<div class="col-sm-6">
 			<div class="summary entry-summary">
 
 				<?php
@@ -64,26 +58,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 					 */
 					do_action( 'woocommerce_single_product_summary' );
 				?>
-
 			</div><!-- .summary -->
-		</div>
-	</div>
+			
+			<?php
+				/**
+				 * woocommerce_after_single_product_summary hook
+				 *
+				 * @hooked woocommerce_output_product_data_tabs - 10
+				 * @hooked woocommerce_upsell_display - 15
+				 * @hooked woocommerce_output_related_products - 20
+				 */
+				do_action( 'woocommerce_after_single_product_summary' );
+			?>
 
-	<?php
-		/**
-		 * woocommerce_after_single_product_summary hook
-		 *
-		 * @hooked woocommerce_output_product_data_tabs - 10
-		 * @hooked woocommerce_upsell_display - 15
-		 * @hooked woocommerce_output_related_products - 20
-		 */
-		do_action( 'woocommerce_after_single_product_summary' );
-	?>
-
-	<meta itemprop="url" content="<?php the_permalink(); ?>" />
-		
+			<meta itemprop="url" content="<?php the_permalink(); ?>" />
 	</div>
-	
 </div><!-- #product-<?php the_ID(); ?> -->
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>
