@@ -1,4 +1,5 @@
-.production-lest {
+.production-list {
+
 	.production {
 		margin-bottom: 25px;
 	}
@@ -10,10 +11,14 @@
 }
 
 
-@media only screen and (max-width: $breakpointTablet) {
-	.production-lest {
+@media only screen and (max-width: $screen-sm-min) {
+	.production-list {
 		.production a {
 			display: inline-block;
+
+			.wp-post-image {
+				margin: 0;
+			}
 		}
 	}
 }

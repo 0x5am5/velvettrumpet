@@ -10,8 +10,7 @@
 <!--<![endif]-->
 	<head>
 		<title>
-			<?php bloginfo('name'); ?> - 
-			<?php echo get_the_title($ID); ?></title>		
+			<?php bloginfo('name'); ?> - <?php echo get_the_title($ID); ?></title>		
 		<meta property="og:image" content="<?php bloginfo('template_directory'); ?>/images/vt-logo.jpg">
 		<link rel="apple-touch-icon" href="<?php bloginfo('template_directory'); ?>/images/vt-icon.png" />
 		<link rel="shortcut icon" href="<?php bloginfo('template_directory'); ?>/favicon.ico" />	
@@ -94,7 +93,6 @@
 									</a>
 								</li>				
 							</ul>
-							<div class="tagline"><?php bloginfo('description'); ?></div>
 						</div>		
 					</nav>					
 				</div>

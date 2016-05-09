@@ -14,6 +14,19 @@
 .home-page-carousel {
 	max-width: 860px; 
 	margin: 0 auto 25px auto;
+
+	.carousel-indicators {
+		left: 30px;
+		bottom: 0;
+	}
+
+	.carousel-control.left {
+		left: -105px;
+	}
+
+	.carousel-control.right {
+		left: 105px;
+	}
 }
 
 .container {

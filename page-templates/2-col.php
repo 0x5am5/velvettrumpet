@@ -9,7 +9,7 @@ $parents = get_post_ancestors( $post->ID );
 <?php get_header(); ?>
 
 <div class="wrapper">
-  <div class="container">
+  <div class="container<?php if (apply_filters("the_title", get_the_title(end($parents))) === 'Productions') echo ' production'; ?>">
 
   <?php while ( have_posts() ) : the_post(); ?>
 
@@ -26,8 +26,8 @@ $parents = get_post_ancestors( $post->ID );
       
     <div class="row">
       <div class="col-sm-6">
-        <div class="visible-xs-block text-center">
-          <div class="h2"><?php echo $page_title; ?></div>
+        <div class="visible-xs-block text-center production__title">
+          <div class="h2" itemprop="itemReviewed"><?php echo $page_title; ?></div>
           <em class="tagline">
             <?php 
               if (get_field('tagline')):
@@ -39,7 +39,7 @@ $parents = get_post_ancestors( $post->ID );
           </em> 
         </div>
         <?php if (has_post_thumbnail() || get_field('poster_image')) : ?>
-          <div class="poster-large">
+          <div class="poster-large production__poster">
             <?php if(get_field('booking_now')) : ?>
             <span class="icon booking"></span>
             <?php endif; ?>
@@ -50,7 +50,7 @@ $parents = get_post_ancestors( $post->ID );
             <?php endif; ?>
           </div>
         <?php endif; ?>
-        <div class="additional-info">
+        <div class="additional-info production__additional-info">
           <div class="hidden-xs">
           <?php if (get_field('performance_dates')) : ?>
               <h2 class="sr-only">Dates of Performance</h2>
@@ -89,8 +89,8 @@ $parents = get_post_ancestors( $post->ID );
           <?php endif; ?>
         </div>      
       </div>
-      <div class="col-sm-6<?php if (apply_filters("the_title", get_the_title(end($parents))) === 'Productions') echo ' production'; if ($page_title == 'Soggy Brass') echo ' right-col'; ?>">
-        <div class="hidden-xs">
+      <div class="col-sm-6<?php if ($page_title == 'Soggy Brass') echo ' right-col'; ?>">
+        <div class="hidden-xs production__title">
           <h1 class="h2"><?php echo $page_title; ?></h1>
           <em class="tagline">
             <?php 
@@ -148,15 +148,30 @@ $parents = get_post_ancestors( $post->ID );
       </div>
 
       <?php if (get_field('reviews')) : ?>
+        <?php $rating = 0; ?>
+        <?php $reviews = 0; ?> 
         <h2 class="sr-only">Reviews</h2>
-        <div class="reviews">
-        <?php
-           while( has_sub_field('reviews') ): 
-             echo '<div><div class="border"></div>'.get_sub_field('rating').' <blockquote cite="'.get_sub_field('source_link').'">"'.get_sub_field('quote').'" - <a href="'.get_sub_field('source_link').'" target="_blank">'.get_sub_field('reviewer').'</a></blockquote></div>';
-           endwhile; 
-        ?>
-        </div>
-      <?php endif; ?>
+        <?php while(has_sub_field('reviews')): 
+          $reviews++;
+          echo '<blockquote itemprop="review" itemtype="http://schema.org/VisualArtwork" cite="'.get_sub_field('source_link').'">';
+
+          if (has_sub_field('star_rating')) :
+            $i;
+            echo '<div>';
+            for ($i = 1; $i < get_sub_field('star_rating'); $i++) { 
+              echo '<span class="glyphicon glyphicon-star"></span>';
+            }
+            if ($i > $rating) $rating = $i;
+            echo '</div>';
+          endif;
+          echo '<span itemprop="reviewBody">"'.get_sub_field('quote').'</span>"<footer><a href="'.get_sub_field('source_link').'" target="_blank" itemprop="reviewer">'.get_sub_field('reviewer').'</a></footer></blockquote>';
+        endwhile; 
+        
+        if (($rating-1) > 0) :
+          echo '<span class="sr-only"><span itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating"><span itemprop="ratingValue">'.($i-1).'</span></span> star rating</span>';
+        endif;
+        echo '<meta itemprop="reviewCount" content="'.$reviews.'">';
+      endif; ?>
 
       <?php get_template_part( 'template-parts/content', 'performance-images' ); ?>
       
