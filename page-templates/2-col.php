@@ -9,7 +9,7 @@ $parents = get_post_ancestors( $post->ID );
 <?php get_header(); ?>
 
 <div class="wrapper">
-  <div class="container<?php if (apply_filters("the_title", get_the_title(end($parents))) === 'Productions') echo ' production'; ?>">
+  <div class="container">
 
   <?php while ( have_posts() ) : the_post(); ?>
 

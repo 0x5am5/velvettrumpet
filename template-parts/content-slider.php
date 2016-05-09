@@ -14,10 +14,10 @@ elseif( get_field('slider') ): ?>
 		$images = get_field('slider');
 		shuffle($images);		
 	?>
-	<div class="carousel slide home-page-carousel" data-ride="carousel">
+	<div class="carousel slide home-page-carousel" data-ride="carousel" id="image-slider">
 		<ol class="carousel-indicators">
 		<?php foreach($images as $value) { ?>
-    		<li data-target="#image-slider" data-slide-to="<?php echo $indicator ?>"></li>
+    		<li data-target="#image-slider" data-slide-to="<?php echo $indicator ?>" <?php if(!$indicator) echo 'class="active"'; ?>></li>
     		<?php $indicator++; ?>
 		<?php } ?>
 	  </ol>

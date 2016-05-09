@@ -7764,7 +7764,7 @@ th {
   left: -105px;
 }
 .home-page-carousel .carousel-control.right {
-  left: 105px;
+  right: -105px;
 }
 
 .container {
