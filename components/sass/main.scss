@@ -30,9 +30,8 @@ Author URI: http://www.samgregorydigital.co.uk
 @import 'components/footer';
 @import 'components/about';
 @import 'components/soggybrass';
-@import 'components/production';
-@import 'components/productions';
-@import 'components/production';
+@import 'components/production'; // Single production
+@import 'components/productions'; // Productions page
 @import 'components/featured-img';
 @import 'components/post-nav';
 @import 'components/performance-images';

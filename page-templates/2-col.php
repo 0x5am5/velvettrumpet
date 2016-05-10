@@ -9,7 +9,7 @@ $parents = get_post_ancestors( $post->ID );
 <?php get_header(); ?>
 
 <div class="wrapper">
-  <div class="container">
+  <div class="container<?php if (apply_filters("the_title", get_the_title(end($parents))) === 'Productions') echo ' production'; ?>">
 
   <?php while ( have_posts() ) : the_post(); ?>
 
@@ -50,8 +50,7 @@ $parents = get_post_ancestors( $post->ID );
             <?php endif; ?>
           </div>
         <?php endif; ?>
-        <div class="additional-info production__additional-info">
-          <div class="hidden-xs">
+        <div class="hidden-xs">
           <?php if (get_field('performance_dates')) : ?>
               <h2 class="sr-only">Dates of Performance</h2>
               <ol class="bullet-list">
@@ -64,30 +63,29 @@ $parents = get_post_ancestors( $post->ID );
           <?php endif; ?>
 
           <?php if (get_field('running_time')) echo '<p>Running time | '.get_field('running_time').' minutes</p>'; ?>
-          </div>
+        </div>
 
-          <?php if (get_field('next_soggy_brass')) the_field('next_soggy_brass'); ?>
-          
-          <?php if(get_field('add_to_cart')) : ?>
-                  
-            <?php
-              $pageURL = $_SERVER["REQUEST_URI"];
-
-              if(count($_GET)>0) :
-                $pageURL .= '&add-to-cart=';
-              else :
-                $pageURL .= '?add-to-cart=';
-              endif;
-
-              $pageURL .= get_field('add_to_cart'); 
-            ?>
+        <?php if (get_field('next_soggy_brass')) the_field('next_soggy_brass'); ?>
+        
+        <?php if(get_field('add_to_cart')) : ?>
                 
-            <p>
-              <a href="<?php echo $pageURL; ?>" title="Book now" class="button button--buy">Book now!</a>                
-            </p>
-                  
-          <?php endif; ?>
-        </div>      
+          <?php
+            $pageURL = $_SERVER["REQUEST_URI"];
+
+            if(count($_GET)>0) :
+              $pageURL .= '&add-to-cart=';
+            else :
+              $pageURL .= '?add-to-cart=';
+            endif;
+
+            $pageURL .= get_field('add_to_cart'); 
+          ?>
+              
+          <p>
+            <a href="<?php echo $pageURL; ?>" title="Book now" class="button button--buy">Book now!</a>                
+          </p>
+                
+        <?php endif; ?>  
       </div>
       <div class="col-sm-6<?php if ($page_title == 'Soggy Brass') echo ' right-col'; ?>">
         <div class="hidden-xs production__title">

@@ -5,6 +5,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-postcss');
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -37,7 +38,7 @@ module.exports = function(grunt) {
           sourcemap: 'none'
         },
         files: {
-          'compiled/style.css': 'components/sass/main.scss'
+          'style.css': 'components/sass/main.scss'
         }
       }
     },
@@ -75,17 +76,17 @@ module.exports = function(grunt) {
       }
     },
 
-    // postcss: {
-    //   options: {
-    //     map: true,
-    //     processors: [
-    //       require('autoprefixer')({browsers: ['last 1 version']}),
-    //     ]
-    //   },
-    //   dist: {
-    //     src: 'components/sass/*/**'
-    //   }
-    // },
+    postcss: {
+      options: {
+        map: true,
+        processors: [
+          require('autoprefixer')({browsers: ['last 1 version']}),
+        ]
+      },
+      dist: {
+        src: 'style.css'
+      }
+    },
 
     watch: {
       options: { livereload: true },
@@ -102,6 +103,6 @@ module.exports = function(grunt) {
 
 
   grunt.registerTask('default', ['copy','sass:dev', 'watch']);
-  grunt.registerTask('build', ['sass:build', 'uglify' ])
+  grunt.registerTask('build', ['sass:build', 'postcss', 'uglify' ])
 
 }
