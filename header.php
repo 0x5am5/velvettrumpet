@@ -41,7 +41,7 @@
 								<span class="icon twitter"></span>
 							</a>
 						</li>
-						<li><span class="menu-trigger icon vt-logo show-hide"></span></li>
+						<li><a href="/"><span class="menu-trigger icon vt-logo show-hide"></span></a></li>
 						<li class="hidden-xs">
 							<a href="https://www.instagram.com/velvettrumpet" target="_blank" title="Follow us on Instagram">
 								<span class="sr-only">Go to our Instagram page</span>
