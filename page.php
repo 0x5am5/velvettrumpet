@@ -2,45 +2,59 @@
 
 <div class="wrapper<?php if (get_the_title() === 'Productions') echo ' production-list'; ?>">
 	<div class="container">
+	
+		<main>
+			<article>
+				<?php while ( have_posts() ) : the_post(); ?>
 
-	<?php while ( have_posts() ) : the_post();
+					<section>
 
-		if (!is_front_page()) : ?>
+						<?php if (is_front_page()) : ?>
 
-			<h1<?php if(get_field('hide_header')) :  echo ' class="sr-only"';  endif; ?>><?php the_title($ID); ?></h1>
+							<header>
+								<h1 class="sr-only">Velvet Trumpet</h1>
+							</header>
 
-			<?php else :
+							<?php get_template_part( 'template-parts/content', 'slider' ); ?>
 
-			echo '<h1 class="sr-only">Velvet Trumpet</h1>';
+						<?php else : ?>
 
-			get_template_part( 'template-parts/content', 'slider' ); 
+							<header>
+								<h1 class="sr-only"><?php the_title($ID); ?></h1>
+							</header>
 
-		endif;
+						<?php endif; ?>
 
-		 if(get_field('mission_statement')) : ?>
+						<?php if(get_field('mission_statement')) : ?>
+							
+							<header>
+								<h2>Mission Statement</h2>
+							</header>
 
-			<h2>Mission Statement</h2>
-			<div class="mission-statement">
-				<?php the_field('mission_statement'); ?>
-			</div>  
+							<div class="mission-statement">
+								<?php the_field('mission_statement'); ?>
+							</div>  
 
-		<?php endif;
+						<?php endif; ?>
 
-		if(get_field('staff_member')) :
-			
-			get_template_part( 'template-parts/content', 'employees' );
+						<?php if(get_field('staff_member')) :
+							
+							get_template_part( 'template-parts/content', 'employees' );
 
-		endif;
-		
-		if(get_the_title() === 'Productions') :
+						endif;
+						
+						if(get_the_title() === 'Productions') :
 
-			get_template_part( 'template-parts/content', 'productions' );
+							get_template_part( 'template-parts/content', 'productions' );
 
-		endif;
-			
-		echo '<div class="main-content">'.get_the_content().'</div>';
-		
-	endwhile; ?>
+						endif; ?>
+							
+						<div class="main-content"><?php the_content(); ?></div>
+
+					</section>
+				endwhile; ?>
+			</article>
+		</main>
 
 	</div>
 </div>
