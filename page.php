@@ -52,7 +52,7 @@
 						<div class="main-content"><?php the_content(); ?></div>
 
 					</section>
-				endwhile; ?>
+				<?php endwhile; ?>
 			</article>
 		</main>
 

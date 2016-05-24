@@ -13,11 +13,13 @@ $parents = get_post_ancestors( $post->ID );
     <main>
       <article>
         <?php while ( have_posts() ) : the_post(); ?>
-          <section>
+          
+          <section itemscope itemtype="http://schema.org/Event">
+            
             <?php $page_title = get_the_title($ID); ?>
 
             <header>
-              <h1 class="sr-only"><?php echo $page_title; ?></h1>
+              <h1 class="sr-only" itemprop="name"><?php echo $page_title; ?></h1>
             </header>
             
 
@@ -35,33 +37,49 @@ $parents = get_post_ancestors( $post->ID );
                 <div class="visible-xs-block text-center production__title">
                   <div class="h2"><?php echo $page_title; ?></div>
                   <em class="tagline">
-                    <?php 
-                      if (get_field('tagline')):
-                          the_field('tagline');
-                      elseif (get_field('venue')):
-                        echo get_the_date('jS F \'y').' | '.get_field('venue');
-                      endif; 
-                    ?> 
+                    <?php if (get_field('tagline')):
+                      the_field('tagline');
+                    elseif (get_field('venue')):
+                      echo get_the_date('jS F \'y').' | '.get_field('venue');
+                    endif; ?> 
                   </em> 
                 </div>
+
                 <?php if (has_post_thumbnail() || get_field('poster_image')) : ?>
                   <div class="poster-large production__poster">
                     <?php if (has_post_thumbnail()) :
-                      the_post_thumbnail('post-thumbnail');
+                      the_post_thumbnail('post-thumbnail', array('itemprop' => 'image'));
                     elseif(get_field('poster_image')) : ?> 
-                      <img src="<?php echo get_field('poster_image')['url']; ?>" alt="<?php echo get_field('poster_image')['title']; ?>"/>
+                      <img itemprop="image" src="<?php echo get_field('poster_image')['url']; ?>" alt="<?php echo get_field('poster_image')['title']; ?>"/>
                     <?php endif; ?>
                   </div>
                 <?php endif; ?>
+
                 <div class="hidden-xs">
                   <?php if (get_field('performance_dates')) : ?>
                       <h2 class="sr-only">Dates of Performance</h2>
+                      
                       <ol class="bullet-list">
-                        <?php
-                          while( has_sub_field('performance_dates') ) :
-                            echo '<li>'.get_sub_field('date').'</li>';
-                          endwhile;
-                        ?>
+                        <?php while( has_sub_field('performance_dates') ) :
+                    
+                          $fullDate = get_sub_field('date');
+                          $startDate = get_sub_field('start_date');
+                          $endDate = get_sub_field('end_date');
+                          $venue = get_sub_field('venue');
+
+                          if ($fullDate) :
+                            echo '<li>'.$fullDate.'</li>';
+                          else : ?>
+                            <li>
+                              <span itemprop="startDate" value="<?php echo $startDate; ?>"><?php echo date("jS F", strtotime($startDate)); ?></span>
+                              <?php if ($endDate) : ?>
+                                - <span itemprop="endDate" value="<?php echo $endDate; ?>"><?php echo date("jS F", strtotime($endDate)); ?></span>
+                              <?php endif; ?>
+                              <?php echo date("Y", strtotime($startDate)); ?>
+                              <?php echo ' at <span itemprop="location">' . $venue . '</span>'; ?>
+                            </li>
+                          <?php endif; ?>
+                        <?php endwhile; ?>
                       </ol>
                   <?php endif; ?>
 
@@ -70,7 +88,7 @@ $parents = get_post_ancestors( $post->ID );
 
                 <?php if (get_field('next_soggy_brass')) the_field('next_soggy_brass'); ?>
                 
-                <?php if(get_field('add_to_cart')) : ?>
+                <?php if (get_field('add_to_cart')) : ?>
                         
                   <?php
                     $pageURL = $_SERVER["REQUEST_URI"];
@@ -90,6 +108,7 @@ $parents = get_post_ancestors( $post->ID );
                         
                 <?php endif; ?>  
               </div>
+
               <div class="col-sm-6<?php if ($page_title == 'Soggy Brass') echo ' right-col'; ?>">
                 <div class="hidden-xs production__title">
                   <h2><?php echo $page_title; ?></h2>
@@ -103,29 +122,35 @@ $parents = get_post_ancestors( $post->ID );
                     ?> 
                   </em>     
                 </div>
-                <h2 class="sr-only">Synopsis</h2>        
-                <?php the_content(); ?>
+                <h2 class="sr-only">Synopsis</h2> 
+
+                <span itemprop="description">
+                  <?php the_content(); ?>
+                </span>       
                 
-                <h2 class="cast text-uppercase">CAST</h2>
+                <h2 class="cast text-uppercase">Cast</h2>
+                
                 <ul class="list-unstyled">
-                <?php
-                  while( has_sub_field('cast') ): 
-                    echo '<li>'.get_sub_field('name').'</li>';
+                  <?php while( has_sub_field('cast') ): 
+                    echo '<li itemprop="actor">'.get_sub_field('name').'</li>';
                   endwhile; 
 
                   if (get_field('additional_crew')) :
-                    
+
+                    $creativeRole = get_sub_field('role_category') ? 'itemprop="'.get_sub_field('role_category').'"' : '';
+
                     echo '<li class="divider"></li>';
 
                     while( has_sub_field('additional_crew') ): 
-                      echo '<li>'.get_sub_field('role').' '.get_sub_field('name').'</li>';
+                      echo '<li '.$creativeRole.'>'.get_sub_field('role').' '.get_sub_field('name').'</li>';
                     endwhile; 
-                  endif;
-                ?>
+
+                  endif; ?>
                 </ul>
+
                 <?php if (get_field('other_info')) : ?>
                   <div class="other-info">
-                  <?php the_field('other_info'); ?>
+                    <?php the_field('other_info'); ?>
                   </div>
                 <?php endif; ?>
               
@@ -135,17 +160,34 @@ $parents = get_post_ancestors( $post->ID );
               <div class="additional-info visible-xs-block">
                 <h2 class="sr-only">Dates of Performance</h2>
                 <ol class="bullet-list">
-                <?php
-                  while( has_sub_field('performance_dates') ) :
-                    echo '<li>'.get_sub_field('date').'</li>';
-                  endwhile; 
-                ?>
+                  <?php while( has_sub_field('performance_dates') ) :
+                    
+                    $fullDate = get_sub_field('date');
+                    $startDate = get_sub_field('start_date');
+                    $endDate = get_sub_field('end_date');
+                    $venue = get_sub_field('venue');
+
+                    if ($fullDate) :
+                      echo '<li>'.$fullDate.'</li>';
+                    else : ?>
+                      <li>
+                        <span itemprop="startDate" value="<?php echo $startDate; ?>"><?php echo date("jS F", strtotime($startDate)); ?></span>
+                        <?php if ($endDate) : ?>
+                          - <span itemprop="endDate" value="<?php echo $endDate; ?>"><?php echo date("jS F", strtotime($endDate)); ?></span>
+                        <?php endif; ?>
+                        <?php echo date("Y", strtotime($startDate)); ?>
+                        <?php echo ' at <span itemprop="location">' . $venue . '</span>'; ?>
+                      </li>
+                    <?php endif; ?>
+                  <?php endwhile; ?>
                 </ol>
 
-              <?php if (get_field('running_time')) { echo 'Running time | '.get_field('running_time').' minutes'; } ?>
+                <?php if (get_field('running_time')) : ?>
+                  <meta itemprop="duration" value="P <?php the_field('running_time'); ?>M">
+                  Running time | <?php the_field('running_time'); ?> minutes</span>
+                <?php endif; ?>
 
-              <?php if (get_field('next_soggy_brass')) { echo get_field('next_soggy_brass'); }?>
-              
+                <?php if (get_field('next_soggy_brass')) :  the_field('next_soggy_brass'); endif; ?>
               </div>
 
               <?php if (get_field('reviews')) : ?>
@@ -154,7 +196,7 @@ $parents = get_post_ancestors( $post->ID );
                 
                 <?php while(has_sub_field('reviews')): ?>
                   <div itemscope itemtype="http://schema.org/Review">
-                    <blockquote cite="<?php get_sub_field('source_link'); ?>">
+                    <blockquote cite="<?php echo get_sub_field('source_link'); ?>">
                       <meta itemprop="itemReviewed" value="<?php echo $page_title; ?>">
                       
                       <?php if (has_sub_field('star_rating')) : ?>
@@ -170,18 +212,18 @@ $parents = get_post_ancestors( $post->ID );
                         </div>
                       <?php endif; ?>
                     
-                      "<span itemprop="reviewBody"><?php get_sub_field('quote'); ?></span>"
+                      "<span itemprop="reviewBody"><?php echo get_sub_field('quote'); ?></span>"
                       
                       <footer>
-                        <a href="<?php get_sub_field('source_link'); ?>" target="_blank" itemprop="reviewer">
-                          <?php get_sub_field('reviewer'); ?>
+                        <a href="<?php echo get_sub_field('source_link'); ?>" target="_blank" itemprop="reviewer">
+                          <?php echo get_sub_field('reviewer'); ?>
                         </a>
                       </footer>
                     </blockquote>
                   </div>
                   <?php endwhile; ?>
 
-              endif; ?>
+              <?php endif; ?>
 
               <?php get_template_part( 'template-parts/content', 'performance-images' ); ?>
               

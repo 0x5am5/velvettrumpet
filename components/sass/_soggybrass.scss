@@ -1,0 +1,64 @@
+.soggybrass
+{
+	color: #2c3046;
+	
+	.soggy-info
+	{
+		padding: 0 200px;
+	}
+
+	.col {
+		text-align: justify;
+
+		h2 
+		{
+			text-align: left;
+			font-size: 38px;
+		}
+	}
+
+	li {
+		padding-left: 15px;
+		position: relative;
+
+		&:before
+		{
+			position: absolute;
+			left: 0;
+		}
+	}
+}
+
+.soggy-image {
+	margin: 0 auto;
+}
+
+.soggy-brass-archive {
+	padding-top: 20px; 
+	
+	img {
+		margin: 0 auto 5px auto;
+	}
+
+	h2 {
+		text-align: center
+	}
+
+	li {
+		margin-bottom: 10px;
+	}
+}
+
+@media only screen and (max-width: $breakpointTablet) {
+	.soggybrass
+	{
+		.soggy-info
+		{
+			padding: 0;
+		}
+		.soggy-image
+		{
+			width: 100%;
+		}
+	}
+}
