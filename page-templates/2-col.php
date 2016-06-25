@@ -132,7 +132,7 @@ $parents = get_post_ancestors( $post->ID );
                 
                 <ul class="list-unstyled">
                   <?php while( has_sub_field('cast') ): 
-                    echo '<li itemprop="actor">'.get_sub_field('name').'</li>';
+                    echo '<li itemprop="actor performer">'.get_sub_field('name').'</li>';
                   endwhile; 
 
                   if (get_field('additional_crew')) :
@@ -171,19 +171,23 @@ $parents = get_post_ancestors( $post->ID );
                       echo '<li>'.$fullDate.'</li>';
                     else : ?>
                       <li>
-                        <span itemprop="startDate" value="<?php echo $startDate; ?>"><?php echo date("jS F", strtotime($startDate)); ?></span>
+                        <meta itemprop="startDate" value="<?php echo $startDate; ?>">
+                        <?php echo date("jS F", strtotime($startDate)); ?>
                         <?php if ($endDate) : ?>
-                          - <span itemprop="endDate" value="<?php echo $endDate; ?>"><?php echo date("jS F", strtotime($endDate)); ?></span>
+                            <meta itemprop="endDate" value="<?php echo $endDate; ?>">
+                          - <?php echo date("jS F", strtotime($endDate)); ?>
                         <?php endif; ?>
                         <?php echo date("Y", strtotime($startDate)); ?>
-                        <?php echo ' at <span itemprop="location">' . $venue . '</span>'; ?>
+                        <span itemprop="location" itemscope itemtype="http://schema.org/Place">
+                          <?php echo ' at <span itemprop="name">' . $venue . '</span>'; ?>
+                        </span>
                       </li>
                     <?php endif; ?>
                   <?php endwhile; ?>
                 </ol>
 
                 <?php if (get_field('running_time')) : ?>
-                  <meta itemprop="duration" value="P <?php the_field('running_time'); ?>M">
+                  <meta itemprop="duration" value="P<?php the_field('running_time'); ?>M">
                   Running time | <?php the_field('running_time'); ?> minutes</span>
                 <?php endif; ?>
 

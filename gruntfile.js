@@ -78,7 +78,6 @@ module.exports = function(grunt) {
 
     postcss: {
       options: {
-        map: true,
         processors: [
           require('autoprefixer')({browsers: ['last 1 version']}),
         ]
@@ -89,13 +88,12 @@ module.exports = function(grunt) {
     },
 
     watch: {
-      options: { livereload: true },
       scripts: {
         files: ['components/js/*.js'],
         tasks: ['copy']        
       },
       css : {
-        files: ['components/sass/*/**.scss'],
+        files: ['components/sass/**/*.scss'],
         tasks: ['sass:dev']
       }
     }
@@ -103,6 +101,6 @@ module.exports = function(grunt) {
 
 
   grunt.registerTask('default', ['copy','sass:dev', 'watch']);
-  grunt.registerTask('build', ['sass:build', 'postcss', 'uglify' ])
+  grunt.registerTask('build', ['sass:build', 'postcss', 'uglify'])
 
 }

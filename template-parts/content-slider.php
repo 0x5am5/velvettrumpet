@@ -16,11 +16,11 @@ elseif( get_field('slider') ): ?>
 	?>
 	<div class="carousel slide home-page-carousel" data-ride="carousel" id="image-slider">
 		<ol class="carousel-indicators">
-		<?php foreach($images as $value) { ?>
-    		<li data-target="#image-slider" data-slide-to="<?php echo $indicator ?>" <?php if(!$indicator) echo 'class="active"'; ?>></li>
-    		<?php $indicator++; ?>
-		<?php } ?>
-	  </ol>
+			<?php foreach($images as $value) { ?>
+	    		<li data-target="#image-slider" data-slide-to="<?php echo $indicator ?>" <?php if(!$indicator) echo 'class="active"'; ?>></li>
+	    		<?php $indicator++; ?>
+			<?php } ?>
+		</ol>
 		<div class="carousel-inner" role="listbox">		
 			<?php foreach($images as $value) {
 
@@ -52,12 +52,12 @@ elseif( get_field('slider') ): ?>
 			<?php } ?>	
 		</div>	
 		<a class="left carousel-control" href="#image-slider" role="button" data-slide="prev">
-	    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-	    <span class="sr-only">Previous</span>
-	  </a>
-	  <a class="right carousel-control" href="#image-slider" role="button" data-slide="next">
-	    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-	    <span class="sr-only">Next</span>
-	  </a>	
+		    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		    <span class="sr-only">Previous</span>
+		</a>
+	    <a class="right carousel-control" href="#image-slider" role="button" data-slide="next">
+		    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		    <span class="sr-only">Next</span>
+        </a>	
 	</div>
 <?php endif; ?>

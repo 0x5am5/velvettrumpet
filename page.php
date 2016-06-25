@@ -37,7 +37,15 @@
 
 						<?php endif; ?>
 
-						<?php if(get_field('staff_member')) :
+						<?php 
+							if (has_post_thumbnail()) :
+				              echo get_the_post_thumbnail($ID, 'full', array('class'=>'soggy-image no-shadow img-responsive featured-img'));
+							endif; 
+						?>
+
+						<?php 
+
+						if(get_field('staff_member')) :
 							
 							get_template_part( 'template-parts/content', 'employees' );
 
@@ -47,7 +55,9 @@
 
 							get_template_part( 'template-parts/content', 'productions' );
 
-						endif; ?>
+						endif; 
+
+						?>
 							
 						<div class="main-content"><?php the_content(); ?></div>
 
